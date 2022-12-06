@@ -3,25 +3,21 @@
 
     <StackLayout>
         <StackLayout.Resources>
-            <Style x:Key="labelStyle"
-                   TargetType="Label">
+            <Style x:Key="labelStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="25" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="TextColor" Value="Teal" />
             </Style>
-            <Style x:Key="bStyle"
-                   TargetType="Label">
+            <Style x:Key="bStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="18" />
                 <Setter Property="FontAttributes" Value="Italic" />
                 <Setter Property="TextColor" Value="Black" />
             </Style>
             <Style x:Key="boxStyle" TargetType="Label">
                 <Setter Property="Margin" Value="10" />
-               
+
             </Style>
-            <Style x:Key="buttonStyle"
-                   TargetType="Button"
-                   >
+            <Style x:Key="buttonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="Purple" />
                 <Setter Property="TextColor" Value="white" />
                 <Setter Property="BorderColor" Value="White" />
@@ -58,7 +54,7 @@
 
 
 
-                <Label  Style="{StaticResource bStyle}" Text="Mark Your Attandance!" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />
+                <Label Style="{StaticResource bStyle}" Text="Mark Your Attandance!" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />
 
                 <BoxView Grid.Row="2" Color="LightGray" HeightRequest="200" />
 

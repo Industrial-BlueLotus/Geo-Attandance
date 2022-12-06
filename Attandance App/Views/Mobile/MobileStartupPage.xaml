@@ -1,8 +1,140 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Attandance_App.Views.Mobile.MobileStartupPage" Title="Mobile Geo Attandance">
-    <VerticalStackLayout>
-        <Label Text="Mark your attandance!" VerticalOptions="Center" HorizontalOptions="Center" />
+
+    <StackLayout>
+        <StackLayout.Resources>
+            
+            <Style x:Key="bStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="30" />
+                <Setter Property="FontAttributes" Value="Italic" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+
+            <Style x:Key="label1Style" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="None" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="30,10,0,10" />
+            </Style>
+            <Style x:Key="dateStyle" TargetType="Label">
+                <Setter Property="Margin" Value="25,0,25,10" />
+            </Style>
+            <Style x:Key="comboStyle" TargetType="Label">
+                <Setter Property="Margin" Value="25,0,25,10" />
+            </Style>
+            <Style x:Key="nameStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="20" />
+            </Style>
+            <Style x:Key="wboxStyle" TargetType="Label">
+                <Setter Property="Margin" Value="10,400,10,200" />
+
+            </Style>
+            <Style x:Key="gboxStyle" TargetType="Label">
+                <Setter Property="Margin" Value="0,500,0,0" />
+
+            </Style>
+            <Style x:Key="inButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="ForestGreen" />
+                <Setter Property="TextColor" Value="white" />
+                <Setter Property="BorderColor" Value="White" />
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="BorderWidth" Value="5" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+
+            </Style>
+            <Style x:Key="outButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="DarkOrange" />
+                <Setter Property="TextColor" Value="white" />
+                <Setter Property="BorderColor" Value="White" />
+                <Setter Property="CornerRadius" Value="15" />
+                <Setter Property="BorderWidth" Value="5" />
+                <Setter Property="WidthRequest" Value="200" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+
+            </Style>
 
 
-    </VerticalStackLayout>
+            <Style x:Key="ImgStyle" TargetType="ImageButton">
+                <Setter Property="CornerRadius" Value="15" />
+            </Style>
+
+        </StackLayout.Resources>
+
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+
+                </Grid.ColumnDefinitions>
+
+
+
+                <Label Style="{StaticResource bStyle}" Text="Mark Your Attandance!" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />
+
+                <Label Style="{StaticResource nameStyle}" Grid.Row="1" Text="Person Name" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Black" />
+
+                <BoxView Grid.Row="3" Style="{StaticResource gboxStyle}" Color="LightGray" HeightRequest="700">
+
+                </BoxView>
+
+                <BoxView Grid.Row="3" Style="{StaticResource wboxStyle}" CornerRadius="10" Color="White" HeightRequest="350">
+                    <BoxView.Shadow>
+                        <Shadow Brush="gray" Offset="30,80" Opacity="0.1" />
+
+                    </BoxView.Shadow>
+
+                </BoxView>
+
+                <VerticalStackLayout Grid.Row="3" Spacing="0.1">
+                    <Label Style="{StaticResource label1Style}" Text="Date" HorizontalOptions="Start" VerticalOptions="Start" />
+
+
+                    <DatePicker Style="{StaticResource dateStyle}" MinimumDate="01/01/2020" MaximumDate="12/31/2022" Date="06/21/2022" />
+
+                    <Label Style="{StaticResource label1Style}" Text="Location" HorizontalOptions="Start" VerticalOptions="Start" />
+
+
+                    <Picker x:Name="picker" Title="Select a monkey" Style="{StaticResource comboStyle}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Baboon</x:String>
+                                <x:String>Capuchin Monkey</x:String>
+                                <x:String>Blue Monkey</x:String>
+                                <x:String>Squirrel Monkey</x:String>
+                                <x:String>Golden Lion Tamarin</x:String>
+                                <x:String>Howler Monkey</x:String>
+                                <x:String>Japanese Macaque</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Button HeightRequest="50" WidthRequest="300" Grid.Row="3" x:Name="inbtn" Text="In" Style="{StaticResource inButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+
+                    <Button HeightRequest="50" WidthRequest="300" Grid.Row="3" x:Name="outbtn" Text="Out" Style="{StaticResource outButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+
+                </VerticalStackLayout>
+
+
+
+                <!--<Button HeightRequest="50" WidthRequest="100" Grid.Row="5" x:Name="Backbtn" Text="Back" Style="{StaticResource buttonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />-->
+
+
+            </Grid>
+        </ScrollView>
+    </StackLayout>
 </ContentPage>
