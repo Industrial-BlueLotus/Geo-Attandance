@@ -2,70 +2,70 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Attandance_App.Views.Mobile.MobileStartupPage" Title="Mobile Geo Attandance">
     <ScrollView>
         <StackLayout>
-        <StackLayout.Resources>
+            <StackLayout.Resources>
 
-            <Style x:Key="bStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="30" />
-                <Setter Property="FontAttributes" Value="Italic" />
-                <Setter Property="TextColor" Value="Black" />
-            </Style>
+                <Style x:Key="bStyle" TargetType="Label">
+                    <Setter Property="FontSize" Value="30" />
+                    <Setter Property="FontAttributes" Value="Italic" />
+                    <Setter Property="TextColor" Value="Black" />
+                </Style>
 
-            <Style x:Key="label1Style" TargetType="Label">
-                <Setter Property="FontSize" Value="18" />
-                <Setter Property="FontAttributes" Value="None" />
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="Margin" Value="30,10,0,10" />
-            </Style>
-            <Style x:Key="dateStyle" TargetType="Label">
-                <Setter Property="Margin" Value="25,0,25,10" />
-            </Style>
-            <Style x:Key="comboStyle" TargetType="Label">
-                <Setter Property="Margin" Value="25,0,25,10" />
-            </Style>
-            <Style x:Key="nameStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="18" />
-                <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="Margin" Value="20" />
-            </Style>
-            <Style x:Key="wboxStyle" TargetType="Label">
-                <Setter Property="Margin" Value="10,400,10,200" />
+                <Style x:Key="label1Style" TargetType="Label">
+                    <Setter Property="FontSize" Value="18" />
+                    <Setter Property="FontAttributes" Value="None" />
+                    <Setter Property="TextColor" Value="Black" />
+                    <Setter Property="Margin" Value="30,10,0,10" />
+                </Style>
+                <Style x:Key="dateStyle" TargetType="Label">
+                    <Setter Property="Margin" Value="25,0,25,10" />
+                </Style>
+                <Style x:Key="comboStyle" TargetType="Label">
+                    <Setter Property="Margin" Value="25,0,25,10" />
+                </Style>
+                <Style x:Key="nameStyle" TargetType="Label">
+                    <Setter Property="FontSize" Value="18" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                    <Setter Property="TextColor" Value="Black" />
+                    <Setter Property="Margin" Value="20" />
+                </Style>
+                <Style x:Key="wboxStyle" TargetType="Label">
+                    <Setter Property="Margin" Value="10,400,10,200" />
 
-            </Style>
-            <Style x:Key="gboxStyle" TargetType="Label">
-                <Setter Property="Margin" Value="0,1000,0,800" />
+                </Style>
+                <Style x:Key="gboxStyle" TargetType="Label">
+                    <Setter Property="Margin" Value="0,1000,0,800" />
 
-            </Style>
-            <Style x:Key="gbox2Style" TargetType="Label">
-                <Setter Property="Margin" Value="0,400,0,0" />
+                </Style>
+                <Style x:Key="gbox2Style" TargetType="Label">
+                    <Setter Property="Margin" Value="0,400,0,0" />
 
-            </Style>
+                </Style>
                 <Style x:Key="wbox2Style" TargetType="Label">
                     <Setter Property="Margin" Value="10,600,10,200" />
 
                 </Style>
                 <Style x:Key="inButtonStyle" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="ForestGreen" />
-                <Setter Property="TextColor" Value="white" />
-                <Setter Property="BorderColor" Value="White" />
-                <Setter Property="CornerRadius" Value="15" />
-                <Setter Property="BorderWidth" Value="5" />
-                <Setter Property="WidthRequest" Value="200" />
-                <Setter Property="FontSize" Value="18" />
-                <Setter Property="FontAttributes" Value="Bold" />
+                    <Setter Property="BackgroundColor" Value="ForestGreen" />
+                    <Setter Property="TextColor" Value="white" />
+                    <Setter Property="BorderColor" Value="White" />
+                    <Setter Property="CornerRadius" Value="15" />
+                    <Setter Property="BorderWidth" Value="5" />
+                    <Setter Property="WidthRequest" Value="200" />
+                    <Setter Property="FontSize" Value="18" />
+                    <Setter Property="FontAttributes" Value="Bold" />
 
-            </Style>
-            <Style x:Key="outButtonStyle" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="DarkOrange" />
-                <Setter Property="TextColor" Value="white" />
-                <Setter Property="BorderColor" Value="White" />
-                <Setter Property="CornerRadius" Value="15" />
-                <Setter Property="BorderWidth" Value="5" />
-                <Setter Property="WidthRequest" Value="200" />
-                <Setter Property="FontSize" Value="18" />
-                <Setter Property="FontAttributes" Value="Bold" />
+                </Style>
+                <Style x:Key="outButtonStyle" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="DarkOrange" />
+                    <Setter Property="TextColor" Value="white" />
+                    <Setter Property="BorderColor" Value="White" />
+                    <Setter Property="CornerRadius" Value="15" />
+                    <Setter Property="BorderWidth" Value="5" />
+                    <Setter Property="WidthRequest" Value="200" />
+                    <Setter Property="FontSize" Value="18" />
+                    <Setter Property="FontAttributes" Value="Bold" />
 
-            </Style>
+                </Style>
 
                 <Style x:Key="addButtonStyle" TargetType="Button">
                     <Setter Property="BackgroundColor" Value="CadetBlue" />
@@ -106,12 +106,12 @@
 
 
                 <Style x:Key="ImgStyle" TargetType="ImageButton">
-                <Setter Property="CornerRadius" Value="15" />
-            </Style>
+                    <Setter Property="CornerRadius" Value="15" />
+                </Style>
 
-        </StackLayout.Resources>
+            </StackLayout.Resources>
 
-        
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
@@ -133,7 +133,7 @@
 
                 </Grid.ColumnDefinitions>
 
-            
+
 
                 <Label Style="{StaticResource bStyle}" Text="Mark Your Attandance!" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />
 
@@ -162,12 +162,12 @@
 
                     <Picker x:Name="picker" Title="Select a company" Style="{StaticResource comboStyle}">
                         <Picker.Items>
-                            
-                                <x:String>Baboon</x:String>
-                                <x:String>Capuchin Monkey</x:String>
-                                <x:String>Blue Monkey</x:String>
-                                
-                          
+
+                            <x:String>Baboon</x:String>
+                            <x:String>Capuchin Monkey</x:String>
+                            <x:String>Blue Monkey</x:String>
+
+
                         </Picker.Items>
                     </Picker>
 
@@ -192,7 +192,7 @@
                 </BoxView>
 
                 <HorizontalStackLayout Grid.Row="7">
-                    
+
                     <Button HeightRequest="50" WidthRequest="80" Grid.Row="7" x:Name="inbtn" Text="Add" Style="{StaticResource addButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
 
                     <Button HeightRequest="50" WidthRequest="80" Grid.Row="7" x:Name="outbtn" Text="Edit" Style="{StaticResource editButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
@@ -207,7 +207,7 @@
 
 
             </Grid>
-        
-    </StackLayout>
+
+        </StackLayout>
     </ScrollView>
 </ContentPage>
