@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Attandance_App.Views.Mobile.MobileStartupPage" Title="Mobile Geo Attandance">
-
-    <StackLayout>
+    <ScrollView>
+        <StackLayout>
         <StackLayout.Resources>
-            
+
             <Style x:Key="bStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="30" />
                 <Setter Property="FontAttributes" Value="Italic" />
@@ -33,10 +33,18 @@
 
             </Style>
             <Style x:Key="gboxStyle" TargetType="Label">
-                <Setter Property="Margin" Value="0,500,0,0" />
+                <Setter Property="Margin" Value="0,1000,0,800" />
 
             </Style>
-            <Style x:Key="inButtonStyle" TargetType="Button">
+            <Style x:Key="gbox2Style" TargetType="Label">
+                <Setter Property="Margin" Value="0,400,0,0" />
+
+            </Style>
+                <Style x:Key="wbox2Style" TargetType="Label">
+                    <Setter Property="Margin" Value="10,600,10,200" />
+
+                </Style>
+                <Style x:Key="inButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="ForestGreen" />
                 <Setter Property="TextColor" Value="white" />
                 <Setter Property="BorderColor" Value="White" />
@@ -59,14 +67,51 @@
 
             </Style>
 
+                <Style x:Key="addButtonStyle" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="CadetBlue" />
+                    <Setter Property="TextColor" Value="white" />
+                    <Setter Property="BorderColor" Value="White" />
+                    <Setter Property="CornerRadius" Value="15" />
+                    <Setter Property="BorderWidth" Value="5" />
+                    <Setter Property="WidthRequest" Value="200" />
+                    <Setter Property="FontSize" Value="18" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                    <Setter Property="Margin" Value="20,320,0,200" />
 
-            <Style x:Key="ImgStyle" TargetType="ImageButton">
+                </Style>
+                <Style x:Key="editButtonStyle" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="DarkBlue" />
+                    <Setter Property="TextColor" Value="white" />
+                    <Setter Property="BorderColor" Value="White" />
+                    <Setter Property="CornerRadius" Value="15" />
+                    <Setter Property="BorderWidth" Value="5" />
+                    <Setter Property="WidthRequest" Value="200" />
+                    <Setter Property="FontSize" Value="18" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                    <Setter Property="Margin" Value="2,320,0,200" />
+
+                </Style>
+                <Style x:Key="saveButtonStyle" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="Black" />
+                    <Setter Property="TextColor" Value="white" />
+                    <Setter Property="BorderColor" Value="White" />
+                    <Setter Property="CornerRadius" Value="15" />
+                    <Setter Property="BorderWidth" Value="5" />
+                    <Setter Property="WidthRequest" Value="200" />
+                    <Setter Property="FontSize" Value="18" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                    <Setter Property="Margin" Value="2,320,10,200" />
+
+                </Style>
+
+
+                <Style x:Key="ImgStyle" TargetType="ImageButton">
                 <Setter Property="CornerRadius" Value="15" />
             </Style>
 
         </StackLayout.Resources>
 
-        <ScrollView>
+        
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
@@ -76,25 +121,31 @@
                     <RowDefinition Height="50" />
                     <RowDefinition Height="100" />
                     <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
 
                 </Grid.ColumnDefinitions>
 
-
+            
 
                 <Label Style="{StaticResource bStyle}" Text="Mark Your Attandance!" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />
 
                 <Label Style="{StaticResource nameStyle}" Grid.Row="1" Text="Person Name" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Black" />
 
-                <BoxView Grid.Row="3" Style="{StaticResource gboxStyle}" Color="LightGray" HeightRequest="700">
+                <BoxView Grid.Row="3" Style="{StaticResource gboxStyle}" Color="LightGray" HeightRequest="420" />
 
-                </BoxView>
+
 
                 <BoxView Grid.Row="3" Style="{StaticResource wboxStyle}" CornerRadius="10" Color="White" HeightRequest="350">
                     <BoxView.Shadow>
-                        <Shadow Brush="gray" Offset="30,80" Opacity="0.1" />
+                        <Shadow Brush="gray" Offset="30,80" Opacity="0.2" />
 
                     </BoxView.Shadow>
 
@@ -109,18 +160,15 @@
                     <Label Style="{StaticResource label1Style}" Text="Location" HorizontalOptions="Start" VerticalOptions="Start" />
 
 
-                    <Picker x:Name="picker" Title="Select a monkey" Style="{StaticResource comboStyle}">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
+                    <Picker x:Name="picker" Title="Select a company" Style="{StaticResource comboStyle}">
+                        <Picker.Items>
+                            
                                 <x:String>Baboon</x:String>
                                 <x:String>Capuchin Monkey</x:String>
                                 <x:String>Blue Monkey</x:String>
-                                <x:String>Squirrel Monkey</x:String>
-                                <x:String>Golden Lion Tamarin</x:String>
-                                <x:String>Howler Monkey</x:String>
-                                <x:String>Japanese Macaque</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
+                                
+                          
+                        </Picker.Items>
                     </Picker>
 
                     <Button HeightRequest="50" WidthRequest="300" Grid.Row="3" x:Name="inbtn" Text="In" Style="{StaticResource inButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
@@ -130,11 +178,36 @@
                 </VerticalStackLayout>
 
 
+                <BoxView Grid.Row="7" Style="{StaticResource gbox2Style}" Color="SlateGray" HeightRequest="420">
 
-                <!--<Button HeightRequest="50" WidthRequest="100" Grid.Row="5" x:Name="Backbtn" Text="Back" Style="{StaticResource buttonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />-->
+                </BoxView>
+
+
+                <BoxView Grid.Row="7" Style="{StaticResource wbox2Style}" CornerRadius="10" Color="White" HeightRequest="350">
+                    <BoxView.Shadow>
+                        <Shadow Brush="black" Offset="30,80" Opacity="0.1" />
+
+                    </BoxView.Shadow>
+
+                </BoxView>
+
+                <HorizontalStackLayout Grid.Row="7">
+                    
+                    <Button HeightRequest="50" WidthRequest="80" Grid.Row="7" x:Name="inbtn" Text="Add" Style="{StaticResource addButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+
+                    <Button HeightRequest="50" WidthRequest="80" Grid.Row="7" x:Name="outbtn" Text="Edit" Style="{StaticResource editButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+
+                    <Button HeightRequest="50" WidthRequest="80" Grid.Row="7" x:Name="outbtn" Text="Save" Style="{StaticResource saveButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+
+                </HorizontalStackLayout>
+
+                <BoxView Grid.Row="12" Style="{StaticResource gbox2Style}" Color="LightGray" HeightRequest="400">
+
+                </BoxView>
 
 
             </Grid>
-        </ScrollView>
+        
     </StackLayout>
+    </ScrollView>
 </ContentPage>
