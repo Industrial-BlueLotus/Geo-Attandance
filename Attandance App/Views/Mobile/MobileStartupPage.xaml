@@ -37,11 +37,20 @@
 
                 </Style>
                 <Style x:Key="gbox2Style" TargetType="Label">
-                    <Setter Property="Margin" Value="0,400,0,0" />
+                    <Setter Property="Margin" Value="0,400,0,150" />
 
                 </Style>
                 <Style x:Key="wbox2Style" TargetType="Label">
-                    <Setter Property="Margin" Value="10,600,10,200" />
+                    <Setter Property="Margin" Value="10,600,10,150" />
+
+                </Style>
+
+                <Style x:Key="gbox3Style" TargetType="Label">
+                    <Setter Property="Margin" Value="0,650,0,80" />
+
+                </Style>
+                <Style x:Key="wbox3Style" TargetType="Label">
+                    <Setter Property="Margin" Value="10,850,10,300" />
 
                 </Style>
                 <Style x:Key="inButtonStyle" TargetType="Button">
@@ -76,7 +85,7 @@
                     <Setter Property="WidthRequest" Value="200" />
                     <Setter Property="FontSize" Value="18" />
                     <Setter Property="FontAttributes" Value="Bold" />
-                    <Setter Property="Margin" Value="20,320,0,200" />
+                    <Setter Property="Margin" Value="20,320,0,150" />
 
                 </Style>
                 <Style x:Key="editButtonStyle" TargetType="Button">
@@ -88,7 +97,7 @@
                     <Setter Property="WidthRequest" Value="200" />
                     <Setter Property="FontSize" Value="18" />
                     <Setter Property="FontAttributes" Value="Bold" />
-                    <Setter Property="Margin" Value="2,320,0,200" />
+                    <Setter Property="Margin" Value="2,320,0,150" />
 
                 </Style>
                 <Style x:Key="saveButtonStyle" TargetType="Button">
@@ -100,7 +109,31 @@
                     <Setter Property="WidthRequest" Value="200" />
                     <Setter Property="FontSize" Value="18" />
                     <Setter Property="FontAttributes" Value="Bold" />
-                    <Setter Property="Margin" Value="2,320,10,200" />
+                    <Setter Property="Margin" Value="2,320,10,150" />
+
+                </Style>
+                <Style x:Key="save1ButtonStyle" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="DarkGreen" />
+                    <Setter Property="TextColor" Value="white" />
+                    <Setter Property="BorderColor" Value="White" />
+                    <Setter Property="CornerRadius" Value="15" />
+                    <Setter Property="BorderWidth" Value="5" />
+                    <Setter Property="WidthRequest" Value="200" />
+                    <Setter Property="FontSize" Value="18" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                    <Setter Property="Margin" Value="20,220,10,100" />
+
+                </Style>
+                <Style x:Key="addTaskButtonStyle" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="DarkSlateGray" />
+                    <Setter Property="TextColor" Value="white" />
+                    <Setter Property="BorderColor" Value="White" />
+                    <Setter Property="CornerRadius" Value="15" />
+                    <Setter Property="BorderWidth" Value="5" />
+                    <Setter Property="WidthRequest" Value="200" />
+                    <Setter Property="FontSize" Value="18" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                    <Setter Property="Margin" Value="0,220,0,100" />
 
                 </Style>
 
@@ -127,6 +160,13 @@
                     <RowDefinition Height="100" />
                     <RowDefinition Height="100" />
                     <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="100" />
+                    
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -139,11 +179,11 @@
 
                 <Label Style="{StaticResource nameStyle}" Grid.Row="1" Text="Person Name" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Black" />
 
-                <BoxView Grid.Row="3" Style="{StaticResource gboxStyle}" Color="LightGray" HeightRequest="420" />
+                <BoxView Grid.Row="3" Style="{StaticResource gboxStyle}" Color="LightGray" HeightRequest="450" />
 
 
 
-                <BoxView Grid.Row="3" Style="{StaticResource wboxStyle}" CornerRadius="10" Color="White" HeightRequest="350">
+                <BoxView Grid.Row="3" Style="{StaticResource wboxStyle}" CornerRadius="10" Color="White" HeightRequest="370">
                     <BoxView.Shadow>
                         <Shadow Brush="gray" Offset="30,80" Opacity="0.2" />
 
@@ -160,25 +200,29 @@
                     <Label Style="{StaticResource label1Style}" Text="Location" HorizontalOptions="Start" VerticalOptions="Start" />
 
 
-                    <Picker x:Name="picker" Title="Select a company" Style="{StaticResource comboStyle}">
-                        <Picker.Items>
-
-                            <x:String>Baboon</x:String>
-                            <x:String>Capuchin Monkey</x:String>
-                            <x:String>Blue Monkey</x:String>
-
-
-                        </Picker.Items>
+                   
+                    <Picker x:Name="picker" Title="Select a Company" Style="{StaticResource comboStyle}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Baboon</x:String>
+                                <x:String>Capuchin Monkey</x:String>
+                                <x:String>Blue Monkey</x:String>
+                                <x:String>Squirrel Monkey</x:String>
+                                <x:String>Golden Lion Tamarin</x:String>
+                                <x:String>Howler Monkey</x:String>
+                                <x:String>Japanese Macaque</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
                     </Picker>
 
-                    <Button HeightRequest="50" WidthRequest="300" Grid.Row="3" x:Name="inbtn" Text="In" Style="{StaticResource inButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+                    <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="inbtn" Text="In" Style="{StaticResource inButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
 
-                    <Button HeightRequest="50" WidthRequest="300" Grid.Row="3" x:Name="outbtn" Text="Out" Style="{StaticResource outButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+                    <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="outbtn" Text="Out" Style="{StaticResource outButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
 
                 </VerticalStackLayout>
 
 
-                <BoxView Grid.Row="7" Style="{StaticResource gbox2Style}" Color="SlateGray" HeightRequest="420">
+                <BoxView Grid.Row="8" Style="{StaticResource gbox2Style}" Color="SlateGray" HeightRequest="430">
 
                 </BoxView>
 
@@ -193,17 +237,154 @@
 
                 <HorizontalStackLayout Grid.Row="7">
 
-                    <Button HeightRequest="50" WidthRequest="80" Grid.Row="7" x:Name="inbtn" Text="Add" Style="{StaticResource addButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+                    <Button HeightRequest="50" WidthRequest="80" Grid.Row="7" x:Name="Addbtn" Text="Add" Style="{StaticResource addButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
 
-                    <Button HeightRequest="50" WidthRequest="80" Grid.Row="7" x:Name="outbtn" Text="Edit" Style="{StaticResource editButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+                    <Button HeightRequest="50" WidthRequest="80" Grid.Row="7" x:Name="Editbtn" Text="Edit" Style="{StaticResource editButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
 
-                    <Button HeightRequest="50" WidthRequest="80" Grid.Row="7" x:Name="outbtn" Text="Save" Style="{StaticResource saveButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+                    <Button HeightRequest="50" WidthRequest="80" Grid.Row="7" x:Name="Savebtn" Text="Save" Style="{StaticResource saveButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
 
                 </HorizontalStackLayout>
 
-                <BoxView Grid.Row="12" Style="{StaticResource gbox2Style}" Color="LightGray" HeightRequest="400">
+                <Frame BorderColor="White" Grid.Row="9" CornerRadius="5" Padding="15" Margin="20,100,20,0"  HeightRequest="250">
+                    
+
+                        <!--<VerticalStackLayout Margin="0,0,0,0" >
+                            <Label Text="In Time" FontSize="14" FontAttributes="Bold" />
+                            <BoxView Color="Gray" HeightRequest="2" HorizontalOptions="Fill" />
+                            <Label Text="08.00" />
+                            <Label Text="Out Time" FontSize="14" FontAttributes="Bold" />
+                            <BoxView Color="Gray" HeightRequest="2" HorizontalOptions="Fill" />
+                             <Label Text="17.00" />
+
+                    </VerticalStackLayout>-->
+
+                    <Grid ColumnSpacing="5" RowSpacing="20">
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+
+                        </Grid.ColumnDefinitions>
+
+                        <BoxView Grid.Row="0" Grid.Column="0" Color="LightGray" HeightRequest="100" WidthRequest="120" CornerRadius="10" ></BoxView>
+                        <BoxView Grid.Row="0" Grid.Column="1" Color="LightGray" HeightRequest="100" WidthRequest="120" CornerRadius="10"></BoxView>
+                        <BoxView Grid.Row="1" Grid.Column="0" Color="LightGray" HeightRequest="100" WidthRequest="120" CornerRadius="10"></BoxView>
+                        <BoxView Grid.Row="1" Grid.Column="1" Color="LightGray" HeightRequest="100" WidthRequest="120" CornerRadius="10"></BoxView>
+
+
+                        <BoxView Grid.Row="0" Grid.Column="0" Color="White" HeightRequest="50" WidthRequest="100" CornerRadius="10" Margin="0,20,0,0"></BoxView>
+                        <BoxView Grid.Row="0" Grid.Column="1" Color="White" HeightRequest="50" WidthRequest="100" CornerRadius="10" Margin="0,20,0,0"></BoxView>
+                        <BoxView Grid.Row="1" Grid.Column="0" Color="White" HeightRequest="50" WidthRequest="100" CornerRadius="10" Margin="0,20,0,0"></BoxView>
+                        <BoxView Grid.Row="1" Grid.Column="1" Color="White" HeightRequest="50" WidthRequest="100" CornerRadius="10" Margin="0,20,0,0"></BoxView>
+
+                        <Label Grid.Row="0" Grid.Column="0" Text="IN" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="OUT" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                        <Label Grid.Row="1" Grid.Column="0" Text="Location" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="Hours" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+
+                    </Grid>
+                    
+                
+                    
+                </Frame>
+
+                <BoxView Grid.Row="12" Style="{StaticResource gbox3Style}" Color="LightGray" HeightRequest="600">
 
                 </BoxView>
+
+                <BoxView Grid.Row="12" Style="{StaticResource wbox3Style}" CornerRadius="10" Color="White" HeightRequest="500">
+                    <BoxView.Shadow>
+                        <Shadow Brush="black" Offset="30,80" Opacity="0.1" />
+
+                    </BoxView.Shadow>
+
+                </BoxView>
+
+                <HorizontalStackLayout Grid.Row="12">
+
+                    <Button HeightRequest="50" WidthRequest="100" x:Name="save1btn" Text="Add" Style="{StaticResource save1ButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+
+                    <Button HeightRequest="50" WidthRequest="100" x:Name="addtaskbtn" Text="Edit" Style="{StaticResource addTaskButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+
+
+                </HorizontalStackLayout>
+
+                <VerticalStackLayout Grid.Row="13" Margin="10,50,10,10">
+                   
+                    <Label  Style="{StaticResource label1Style}" Text="Project" HorizontalOptions="Start" VerticalOptions="Start" />
+
+
+                    <Picker x:Name="picker1" Title="Select a Project" Style="{StaticResource comboStyle}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Baboon</x:String>
+                                <x:String>Capuchin Monkey</x:String>
+                                <x:String>Blue Monkey</x:String>
+                                <x:String>Squirrel Monkey</x:String>
+                                <x:String>Golden Lion Tamarin</x:String>
+                                <x:String>Howler Monkey</x:String>
+                                <x:String>Japanese Macaque</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Label  Style="{StaticResource label1Style}" Text="Task" HorizontalOptions="Start" VerticalOptions="Start" />
+
+
+                    <Picker x:Name="picker2" Title="Select a Task" Style="{StaticResource comboStyle}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Baboon</x:String>
+                                <x:String>Capuchin Monkey</x:String>
+                                <x:String>Blue Monkey</x:String>
+                                <x:String>Squirrel Monkey</x:String>
+                                <x:String>Golden Lion Tamarin</x:String>
+                                <x:String>Howler Monkey</x:String>
+                                <x:String>Japanese Macaque</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Label Style="{StaticResource label1Style}" Text="Task" HorizontalOptions="Start" VerticalOptions="Start" />
+
+
+                    <Picker x:Name="picker3" Title="Select a Task" Style="{StaticResource comboStyle}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Baboon</x:String>
+                                <x:String>Capuchin Monkey</x:String>
+                                <x:String>Blue Monkey</x:String>
+                                <x:String>Squirrel Monkey</x:String>
+                                <x:String>Golden Lion Tamarin</x:String>
+                                <x:String>Howler Monkey</x:String>
+                                <x:String>Japanese Macaque</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Label Style="{StaticResource label1Style}" Text="Task" HorizontalOptions="Start" VerticalOptions="Start" />
+
+
+                    <Picker x:Name="picker4" Title="Select a Task" Style="{StaticResource comboStyle}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Baboon</x:String>
+                                <x:String>Capuchin Monkey</x:String>
+                                <x:String>Blue Monkey</x:String>
+                                <x:String>Squirrel Monkey</x:String>
+                                <x:String>Golden Lion Tamarin</x:String>
+                                <x:String>Howler Monkey</x:String>
+                                <x:String>Japanese Macaque</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+
+                </VerticalStackLayout>
 
 
             </Grid>

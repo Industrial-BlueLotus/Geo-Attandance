@@ -11,4 +11,6 @@ public partial class MobileStartupPage : ContentPage
     {
         Shell.Current.GoToAsync("//MainPage");
     }
+
+
 }
