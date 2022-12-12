@@ -127,6 +127,28 @@
                     <Setter Property="Margin" Value="0,220,0,100" />
 
                 </Style>
+                <Style x:Key="tableTitleStyle" TargetType="Label">
+
+                    <Setter Property="TextColor" Value="Black" />
+                    <Setter Property="FontSize" Value="18" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                    <Setter Property="HeightRequest" Value="20" />
+
+
+
+                </Style>
+                <Style x:Key="tableContStyle" TargetType="Label">
+
+                    <Setter Property="TextColor" Value="Black" />
+                    <Setter Property="FontSize" Value="15" />
+                    <Setter Property="FontAttributes" Value="Italic" />
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                    <Setter Property="HeightRequest" Value="20" />
+
+
+
+                </Style>
 
 
                 <Style x:Key="ImgStyle" TargetType="ImageButton">
@@ -150,13 +172,7 @@
                     <RowDefinition Height="100" />
                     <RowDefinition Height="100" />
                     <RowDefinition Height="100" />
-                    <!--<RowDefinition Height="100" />
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="100" />-->
+
 
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -206,9 +222,9 @@
                         </Picker.ItemsSource>
                     </Picker>
 
-                    <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="inbtn" Text="In" Style="{StaticResource inButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+                    <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="inbtn" Text="In" Style="{StaticResource inButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnInClicked" HorizontalOptions="Center" />
 
-                    <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="outbtn" Text="Out" Style="{StaticResource outButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnBackClicked" HorizontalOptions="Center" />
+                    <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="outbtn" Text="Out" Style="{StaticResource outButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnOutClicked" HorizontalOptions="Center" />
 
                 </VerticalStackLayout>
 
@@ -235,10 +251,82 @@
                     <ImageButton HeightRequest="50" WidthRequest="60" Padding="5" CornerRadius="10" Source="save.png" Clicked="OnBackClicked" HorizontalOptions="Center" Style="{DynamicResource saveButtonStyle}" />
                 </HorizontalStackLayout>
 
-                <Frame BorderColor="White" Grid.Row="9" CornerRadius="5" Padding="10" Margin="20,100,20,0" HeightRequest="250">
-                    
-                      
-                </Frame>
+                <!--<Frame BorderColor="White" Grid.Row="9" CornerRadius="5" Padding="10" Margin="20,100,20,0" HeightRequest="250">-->
+
+                <ScrollView Grid.Row="9" Orientation="Horizontal" HeightRequest="320" WidthRequest="350">
+
+                    <Grid Margin="0,90,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="IN " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="0" />
+                        <Label Text="OUT " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="1" />
+                        <Label Text="Duration " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="2" />
+                        <Label Text="Location " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="3" />
+                        <Label Text="Column 2 " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="4" />
+                        <Label Text="Column 3 " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="5" />
+                        <Label Text="Column 1 " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="6" />
+                        <Label Text="Column 2 " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="7" />
+
+
+                        <Editor Text="{Binding Source={Binding time1},
+                              Path=Time,
+                              StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="2" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="3" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="4" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="5" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="6" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="7" />
+
+
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="0" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="1" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="2" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="3" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="4" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="5" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="6" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="7" />
+
+
+
+
+
+
+
+
+
+
+
+
+                    </Grid>
+
+                </ScrollView>
+
+
+
+                <!--</Frame>-->
 
                 <!--<BoxView Grid.Row="12" Style="{StaticResource gbox3Style}" Color="LightGray" HeightRequest="600">
 

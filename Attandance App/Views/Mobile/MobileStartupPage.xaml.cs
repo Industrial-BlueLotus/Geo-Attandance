@@ -2,9 +2,12 @@ namespace Attandance_App.Views.Mobile;
 
 public partial class MobileStartupPage : ContentPage
 {
+    public DateTime time1 { get; set; }
     public MobileStartupPage()
     {
         InitializeComponent();
+        time1= DateTime.Now;
+        BindingContext = this;
     }
 
     private void OnBackClicked(object sender, EventArgs e)
@@ -12,24 +15,18 @@ public partial class MobileStartupPage : ContentPage
         Shell.Current.GoToAsync("//MainPage");
     }
 
-    //protected override void OnAppearing()
-    //{
-    //    base.OnAppearing();
-    //    outerGrid.Loaded += OuterGrid_Loaded;
-    //    this.SizeChanged += MainPage_SizeChanged;
-    //}
+    private void OnInClicked(object sender, EventArgs e)
+    {
+        time1 = DateTime.Now;
+        Console.WriteLine(time1);
+    }
 
-    //private void MainPage_SizeChanged(object sender, EventArgs e)
-    //{
-    //    horizontalGrid.WidthRequest = outerGrid.Width;
-    //    verticalGrid.WidthRequest = outerGrid.Width;
-    //}
+    private void OnOutClicked(object sender, EventArgs e)
+    {
+        DateTime time2 = DateTime.Now;
+        Console.WriteLine(time2);
+    }
 
-    //private void OuterGrid_Loaded(object sender, EventArgs e)
-    //{
-    //    horizontalGrid.WidthRequest = outerGrid.Width;
-    //    verticalGrid.WidthRequest = outerGrid.Width;
-    //}
 
 
 }
