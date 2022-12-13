@@ -3,10 +3,13 @@ namespace Attandance_App.Views.Mobile;
 public partial class MobileStartupPage : ContentPage
 {
     public DateTime time1 { get; set; }
+    public DateTime time2 { get; set; }
+
     public MobileStartupPage()
     {
         InitializeComponent();
-        time1= DateTime.Now;
+        time1 = DateTime.Now;
+        time2 = DateTime.Now;
         BindingContext = this;
     }
 
@@ -23,7 +26,7 @@ public partial class MobileStartupPage : ContentPage
 
     private void OnOutClicked(object sender, EventArgs e)
     {
-        DateTime time2 = DateTime.Now;
+        time2 = DateTime.Now;
         Console.WriteLine(time2);
     }
 

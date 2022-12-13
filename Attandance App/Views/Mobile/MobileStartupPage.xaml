@@ -202,7 +202,7 @@
                     <Label Style="{StaticResource label1Style}" Text="Date" HorizontalOptions="Start" VerticalOptions="Start" />
 
 
-                    <DatePicker Style="{StaticResource dateStyle}" MinimumDate="01/01/2020" MaximumDate="12/31/2022" Date="06/21/2022" />
+                    <DatePicker x:Name="mDatePicker" Style="{StaticResource dateStyle}" MinimumDate="01/01/2020" MaximumDate="12/31/2022" Date="01/01/2022" />
 
                     <Label Style="{StaticResource label1Style}" Text="Location" HorizontalOptions="Start" VerticalOptions="Start" />
 
@@ -288,11 +288,14 @@
                         <Label Text="Column 2 " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="7" />
 
 
-                        <Editor Text="{Binding Source={Binding time1},
+                        <Entry Placeholder="text" Text="{Binding Source={Binding time1},
                               Path=Time,
                               StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" />
-                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" />
-                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="2" />
+                        <Editor Placeholder="text" Text="{Binding Source={Binding time2},
+                              Path=Time,
+                              StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" />
+                        <Entry Placeholder="text" Text="{Binding Source={x:Reference mDatePicker}, Path=Date ,StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="2" />
+                       
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="3" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="4" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="5" />
