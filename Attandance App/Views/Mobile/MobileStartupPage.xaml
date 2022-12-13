@@ -207,10 +207,10 @@
                     <Label Style="{StaticResource label1Style}" Text="Location" HorizontalOptions="Start" VerticalOptions="Start" />
 
 
+                    <StackLayout>
+                        <Picker x:Name="picker" Title="Select a Company">
+                            <Picker.Items>
 
-                    <Picker x:Name="picker" Title="Select a Company" Style="{StaticResource comboStyle}">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
                                 <x:String>Baboon</x:String>
                                 <x:String>Capuchin Monkey</x:String>
                                 <x:String>Blue Monkey</x:String>
@@ -218,9 +218,11 @@
                                 <x:String>Golden Lion Tamarin</x:String>
                                 <x:String>Howler Monkey</x:String>
                                 <x:String>Japanese Macaque</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
+
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+
 
                     <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="inbtn" Text="In" Style="{StaticResource inButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnInClicked" HorizontalOptions="Center" />
 
@@ -295,7 +297,7 @@
                               Path=Time,
                               StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" />
                         <Entry Placeholder="text" Text="{Binding Source={x:Reference mDatePicker}, Path=Date ,StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="2" />
-                       
+
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="3" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="4" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="5" />
