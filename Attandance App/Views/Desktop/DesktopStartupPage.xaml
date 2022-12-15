@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Attandance_App.Views.Desktop.DesktopStartupPage" Title="Desktop Geo Attandance" BackgroundColor="White">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Attandance_App.Views.Desktop.DesktopStartupPage" Title="Desktop Geo Attandance" BackgroundColor="Black">
     <ScrollView>
         <StackLayout>
             <StackLayout.Resources>
@@ -7,13 +7,13 @@
                 <Style x:Key="bStyle" TargetType="Label">
                     <Setter Property="FontSize" Value="30" />
                     <Setter Property="FontAttributes" Value="Italic" />
-                    <Setter Property="TextColor" Value="Black" />
+                    <Setter Property="TextColor" Value="White" />
                 </Style>
 
                 <Style x:Key="label1Style" TargetType="Label">
                     <Setter Property="FontSize" Value="18" />
                     <Setter Property="FontAttributes" Value="None" />
-                    <Setter Property="TextColor" Value="Black" />
+                    <Setter Property="TextColor" Value="White" />
                     <Setter Property="Margin" Value="30,10,0,10" />
                 </Style>
                 <Style x:Key="dateStyle" TargetType="Label">
@@ -25,7 +25,7 @@
                 <Style x:Key="nameStyle" TargetType="Label">
                     <Setter Property="FontSize" Value="18" />
                     <Setter Property="FontAttributes" Value="Bold" />
-                    <Setter Property="TextColor" Value="Black" />
+                    <Setter Property="TextColor" Value="White" />
                     <Setter Property="Margin" Value="20" />
                 </Style>
                 <Style x:Key="wboxStyle" TargetType="Label">
@@ -56,7 +56,7 @@
                 <Style x:Key="inButtonStyle" TargetType="Button">
                     <Setter Property="BackgroundColor" Value="DarkBlue" />
                     <Setter Property="TextColor" Value="white" />
-                    <Setter Property="BorderColor" Value="White" />
+                    <Setter Property="BorderColor" Value="Black" />
                     <Setter Property="CornerRadius" Value="15" />
                     <Setter Property="BorderWidth" Value="5" />
                     <Setter Property="WidthRequest" Value="200" />
@@ -67,7 +67,7 @@
                 <Style x:Key="outButtonStyle" TargetType="Button">
                     <Setter Property="BackgroundColor" Value="CadetBlue" />
                     <Setter Property="TextColor" Value="white" />
-                    <Setter Property="BorderColor" Value="White" />
+                    <Setter Property="BorderColor" Value="Black" />
                     <Setter Property="CornerRadius" Value="15" />
                     <Setter Property="BorderWidth" Value="5" />
                     <Setter Property="WidthRequest" Value="200" />
@@ -129,7 +129,7 @@
                 </Style>
                 <Style x:Key="tableTitleStyle" TargetType="Label">
 
-                    <Setter Property="TextColor" Value="Black" />
+                    <Setter Property="TextColor" Value="White" />
                     <Setter Property="FontSize" Value="18" />
                     <Setter Property="FontAttributes" Value="Bold" />
                     <Setter Property="HorizontalOptions" Value="Center" />
@@ -140,7 +140,7 @@
                 </Style>
                 <Style x:Key="tableContStyle" TargetType="Label">
 
-                    <Setter Property="TextColor" Value="Black" />
+                    <Setter Property="TextColor" Value="White" />
                     <Setter Property="FontSize" Value="15" />
                     <Setter Property="FontAttributes" Value="Italic" />
                     <Setter Property="HorizontalOptions" Value="Center" />
@@ -186,7 +186,7 @@
 
                 <Label Style="{StaticResource nameStyle}" Grid.Row="1" Text="Person Name" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Black" />
 
-                <!--<BoxView Grid.Row="3" Style="{StaticResource gboxStyle}" Color="LightGray" HeightRequest="450" />-->
+                <BoxView Grid.Row="3" Style="{StaticResource gboxStyle}" Color="Gray" HeightRequest="450" />
 
 
 
@@ -211,13 +211,12 @@
                         <Picker x:Name="picker" Title="Select a Company" Style="{StaticResource comboStyle}">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
-                                    <x:String>Baboon</x:String>
-                                    <x:String>Capuchin Monkey</x:String>
-                                    <x:String>Blue Monkey</x:String>
-                                    <x:String>Squirrel Monkey</x:String>
-                                    <x:String>Golden Lion Tamarin</x:String>
-                                    <x:String>Howler Monkey</x:String>
-                                    <x:String>Japanese Macaque</x:String>
+                                    <x:String>BL360</x:String>
+                                    <x:String>BLX</x:String>
+                                    <x:String>POS</x:String>
+                                    <x:String>Colombo</x:String>
+                                    <x:String>London</x:String>
+                                
                                 </x:Array>
                             </Picker.ItemsSource>
                         </Picker>
@@ -272,10 +271,10 @@
                             <ColumnDefinition Width="100" />
                             <ColumnDefinition Width="200" />
                             <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="200" />
 
 
                         </Grid.ColumnDefinitions>
@@ -284,22 +283,21 @@
                         <Label Text="OUT " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="1" />
                         <Label Text="Duration " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="2" />
                         <Label Text="Location " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="3" />
-                        <Label Text="Column 2 " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="4" />
-                        <Label Text="Column 3 " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="5" />
-                        <Label Text="Column 1 " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="6" />
-                        <Label Text="Column 2 " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="7" />
+                        <Label Text="IN Latitude " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="4" />
+                        <Label Text="IN Longtitude " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="5" />
+                        <Label Text="Out Latitude" Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="6" />
+                        <Label Text="Out Longtitude " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="7" />
 
 
-                        <Entry Placeholder="text" Text="{Binding Source={Binding time1},
+                        <!--<Entry Placeholder="text" Text="{Binding Source={Binding time1},
                               Path=Time,
-                              StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" />
-                        <Entry Placeholder="text" Text="{Binding Source={Binding time2},
-                              Path=Time,
-                              StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" />
+                              StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" />-->
+                        <Entry Placeholder="text" Text="{Binding Time1, StringFormat=' {0}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" />
+                        <Entry Placeholder="text" Text="{Binding Time2, StringFormat=' {H:mm:ss}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" />
                         <Label Text="{Binding Source={x:Reference mDatePicker}, Path=Date ,StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="2" />
 
-                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="3" />
-                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="4" />
+                        <Editor Text="IN" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="3" />
+                        <Editor Text="{Binding Latitude} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="4" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="5" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="6" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="7" />
