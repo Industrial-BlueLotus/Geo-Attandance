@@ -182,9 +182,9 @@
 
 
 
-                <Label Style="{StaticResource bStyle}" Text="Mark Your Attandance!" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />
+                <Label Style="{StaticResource bStyle}" Text="Mark Your Attandance!" VerticalOptions="Center" HorizontalOptions="Center"  />
 
-                <Label Style="{StaticResource nameStyle}" Grid.Row="1" Text="Person Name" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Black" />
+                <Label Style="{StaticResource nameStyle}" Grid.Row="1" Text="Person Name" VerticalOptions="Center" HorizontalOptions="Start" />
 
                 <BoxView Grid.Row="3" Style="{StaticResource gboxStyle}" Color="Gray" HeightRequest="450" />
 
@@ -208,7 +208,7 @@
 
 
                     <StackLayout>
-                        <Picker x:Name="picker" Title="Select a Company" Style="{StaticResource comboStyle}">
+                        <Picker x:Name="mpicker" Title="Select a Company" Style="{StaticResource comboStyle}">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>BL360</x:String>
@@ -216,7 +216,7 @@
                                     <x:String>POS</x:String>
                                     <x:String>Colombo</x:String>
                                     <x:String>London</x:String>
-                                
+
                                 </x:Array>
                             </Picker.ItemsSource>
                         </Picker>
@@ -292,11 +292,11 @@
                         <!--<Entry Placeholder="text" Text="{Binding Source={Binding time1},
                               Path=Time,
                               StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" />-->
-                        <Entry Placeholder="text" Text="{Binding Time1, StringFormat=' {0}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" />
-                        <Entry Placeholder="text" Text="{Binding Time2, StringFormat=' {H:mm:ss}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" />
-                        <Label Text="{Binding Source={x:Reference mDatePicker}, Path=Date ,StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="2" />
+                        <Entry Placeholder="text" Text="{Binding Time1, StringFormat='{}{0:h:mm tt}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" />
+                        <Entry Placeholder="text" Text="{Binding Time2, StringFormat='{}{0:h:mm tt}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" />
+                        <Entry Text="{Binding Source={x:Reference mDatePicker}, Path=Date ,StringFormat='{}{0:MM/dd/yyyy}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="2" />
 
-                        <Editor Text="IN" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="3" />
+                        <Editor Text="{Binding Source={x:Reference mpicker}}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="3" />
                         <Editor Text="{Binding Latitude} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="4" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="5" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="6" />

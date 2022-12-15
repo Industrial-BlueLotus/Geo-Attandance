@@ -145,6 +145,7 @@
                     <Setter Property="FontAttributes" Value="Italic" />
                     <Setter Property="HorizontalOptions" Value="Center" />
                     <Setter Property="HeightRequest" Value="20" />
+                    <!--<Setter Property="Margin" Value="20,20,20,20" />-->
 
 
 

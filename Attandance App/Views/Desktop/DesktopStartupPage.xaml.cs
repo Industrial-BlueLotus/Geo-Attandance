@@ -43,19 +43,7 @@ public partial class DesktopStartupPage : ContentPage, INotifyPropertyChanged
         Shell.Current.GoToAsync("//MainPage");
     }
 
-    //private void OnInClicked(object sender, EventArgs e)
-    //{
-    //    time1 = DateTime.Now;
-    //    Console.WriteLine(time1);
-    //    GetCachedLocation();
-    //}
-
-    //private void OnOutClicked(object sender, EventArgs e)
-    //{
-    //    time2 = DateTime.Now;
-    //    Console.WriteLine(time2);
-    //}
-
+  
     public async Task<string> GetCachedLocation()
     {
         try
@@ -92,10 +80,8 @@ public partial class DesktopStartupPage : ContentPage, INotifyPropertyChanged
     }
     private void OnInClicked(object sender, EventArgs e)
     {
-        //Time1 = DateTime.Now;
         Console.WriteLine(Time1);
 
-        // GetCachedLocation();
     }
 
     private void OnOutClicked(object sender, EventArgs e)
