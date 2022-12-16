@@ -1,49 +1,30 @@
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+
+
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Attandance_App.Views.Desktop;
 
-public partial class DesktopStartupPage : ContentPage, INotifyPropertyChanged
-{
-    //public DateTime time1 { get; set; }
 
-    DateTime _time1;
-    DateTime _time2;
-    //public DateTime time2 { get; set; }
+
+public partial class DesktopStartupPage : ObservableObject
+{
+    public DateTime Time1 { get; set; }
+    public DateTime Time2 { get; set; }
 
 
 
     public Location location { get; set; }
 
-    public DateTime Time1
-    {
-        get => _time1;
-        set => SetProperty(ref _time1, value);
-    }
-
-    public DateTime Time2
-    {
-        get => _time2;
-        set => SetProperty(ref _time2, value);
-    }
-
-    public DesktopStartupPage()
-    {
-        InitializeComponent();
-        Time1 = DateTime.Now;
-        Time2 = DateTime.Now;
-        this.BindingContext = this;
 
 
 
-    }
 
     private void OnBackClicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("//MainPage");
     }
 
-  
+
     public async Task<string> GetCachedLocation()
     {
         try
@@ -73,11 +54,11 @@ public partial class DesktopStartupPage : ContentPage, INotifyPropertyChanged
         return "None";
     }
 
-    private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
-    {
-        Time1 = mDatePicker.Date;
-        Time2 = mDatePicker.Date;
-    }
+    //private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
+    //{
+    //    Time1 = mDatePicker.Date;
+    //    Time2 = mDatePicker.Date;
+    //}
     private void OnInClicked(object sender, EventArgs e)
     {
         Console.WriteLine(Time1);
@@ -90,20 +71,5 @@ public partial class DesktopStartupPage : ContentPage, INotifyPropertyChanged
         Console.WriteLine(Time1);
 
     }
-    bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
-    {
-        if (Object.Equals(storage, value))
-            return false;
 
-        storage = value;
-        OnPropertyChanged(propertyName);
-        return true;
-    }
-
-    protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-    public event PropertyChangedEventHandler PropertyChanged;
 }
