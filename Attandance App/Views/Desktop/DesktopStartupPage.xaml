@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Attandance_App.Views.Desktop.DesktopStartupPage" Title="Desktop Geo Attandance" BackgroundColor="Black">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Attandance_App.Views.Desktop.DesktopStartupPage" Title="Desktop Geo Attandance" BackgroundColor="Black" xmlns:model="clr-namespace:Attandance_App.ViewModels" x:DataType="model:AttendenceViewModel">
     <ScrollView>
         <StackLayout>
             <StackLayout.Resources>
@@ -182,7 +182,7 @@
 
 
 
-                <Label Style="{StaticResource bStyle}" Text="Mark Your Attandance!" VerticalOptions="Center" HorizontalOptions="Center"  />
+                <Label Style="{StaticResource bStyle}" Text="Mark Your Attandance!" VerticalOptions="Center" HorizontalOptions="Center" />
 
                 <Label Style="{StaticResource nameStyle}" Grid.Row="1" Text="Person Name" VerticalOptions="Center" HorizontalOptions="Start" />
 
@@ -223,9 +223,9 @@
                     </StackLayout>
 
 
-                    <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="inbtn" Text="In" Style="{StaticResource inButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnInClicked" HorizontalOptions="Center" />
+                    <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="inbtn" Text="In" Style="{StaticResource inButtonStyle}" SemanticProperties.Hint="navigate when clicked" Command="{Binding InButtonClickCommand}" HorizontalOptions="Center" />
 
-                    <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="outbtn" Text="Out" Style="{StaticResource outButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnOutClicked" HorizontalOptions="Center" />
+                    <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="outbtn" Text="Out" Style="{StaticResource outButtonStyle}" SemanticProperties.Hint="navigate when clicked" HorizontalOptions="Center" />
 
                 </VerticalStackLayout>
 

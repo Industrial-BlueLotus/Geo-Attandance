@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Attandance_App.Views.Mobile.MobileStartupPage" Title="Mobile Geo Attandance" BackgroundColor="White">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Attandance_App.Views.Mobile.MobileStartupPage" Title="Mobile Geo Attandance" BackgroundColor="White" xmlns:mms="clr-namespace:Attandance_App.ViewModels" x:DataType="mms:AttendenceViewModel">
     <ScrollView>
         <StackLayout>
             <StackLayout.Resources>
@@ -182,9 +182,9 @@
                 </Grid.ColumnDefinitions>
 
 
-                    <Label Style="{StaticResource bStyle}" Text="Mark Your Attandance!" VerticalOptions="Center" HorizontalOptions="Center"  />
+                <Label Style="{StaticResource bStyle}" Text="Mark Your Attandance!" VerticalOptions="Center" HorizontalOptions="Center" />
 
-                <Label Style="{StaticResource nameStyle}" Grid.Row="1" Text="Person Name" VerticalOptions="Center" HorizontalOptions="Start"  />
+                <Label Style="{StaticResource nameStyle}" Grid.Row="1" Text="Person Name" VerticalOptions="Center" HorizontalOptions="Start" />
 
                 <BoxView Grid.Row="3" Style="{StaticResource gboxStyle}" Color="LightGray" HeightRequest="450" />
 
@@ -207,30 +207,30 @@
                     <Label Style="{StaticResource label1Style}" Text="Location" HorizontalOptions="Start" VerticalOptions="Start" />
 
 
-                    
-                        <Picker x:Name="picker" Title="Select a Company" Style="{StaticResource comboStyle}" >
-                            <Picker.ItemsSource>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>BL360</x:String>
-                                    <x:String>BLX</x:String>
-                                    <x:String>POS</x:String>
-                                    <x:String>Colombo</x:String>
-                                    <x:String>London</x:String>
 
-                                </x:Array>
-                            </Picker.ItemsSource>
-                        </Picker>
-                   
+                    <Picker x:Name="picker" Title="Select a Company" Style="{StaticResource comboStyle}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>BL360</x:String>
+                                <x:String>BLX</x:String>
+                                <x:String>POS</x:String>
+                                <x:String>Colombo</x:String>
+                                <x:String>London</x:String>
 
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
 
 
-                    <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="inbtn" Text="In" Style="{StaticResource inButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnInClicked" HorizontalOptions="Center" />
+
+
+                    <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="inbtn" Text="In" Style="{StaticResource inButtonStyle}" SemanticProperties.Hint="navigate when clicked" Command="{Binding InButtonClickCommand}" HorizontalOptions="Center" />
 
                     <Button HeightRequest="60" WidthRequest="300" Grid.Row="3" x:Name="outbtn" Text="Out" Style="{StaticResource outButtonStyle}" SemanticProperties.Hint="navigate when clicked" Clicked="OnOutClicked" HorizontalOptions="Center" />
 
                 </VerticalStackLayout>
 
-               
+
 
 
                 <BoxView Grid.Row="8" Style="{StaticResource gbox2Style}" Color="SlateGray" HeightRequest="430">
