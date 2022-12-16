@@ -28,6 +28,12 @@ public partial class DesktopStartupPage : ContentPage
 
     }
 
+
+    private void OnCounterClicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("//MainPage");
+    }
+
     private void OnBackClicked(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("//MainPage");

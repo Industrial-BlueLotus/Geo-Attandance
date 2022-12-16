@@ -8,13 +8,13 @@ public partial class App : Application
     public App()
     {
         InitializeComponent();
+        MainPage = new DesktopStartupPage();
 
-
-#if ANDROID 
-        MainPage = new NavigationPage(new MobileStartupPage());
+#if ANDROID
+        //  
 
 #else
-	     MainPage = new NavigationPage(new DesktopStartupPage());
+        //   MainPage = new NavigationPage(new DesktopStartupPage());
 #endif
 
     }

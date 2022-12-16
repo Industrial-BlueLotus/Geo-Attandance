@@ -11,8 +11,6 @@ namespace Attandance_App.ViewModels
     public partial class AttendenceViewModel : ObservableObject
     {
 
-        [ObservableProperty]
-        private DateTime loggedInTime;
 
         [ObservableProperty]
         private DateTime time1;
@@ -22,12 +20,21 @@ namespace Attandance_App.ViewModels
 
 
         [ObservableProperty]
-        private DateTime latitude;
+        private string latitude;
 
         [RelayCommand]
         public void OnInButtonClick()
         {
             int c = 0;
+            Latitude = "Tets Done";
+            Time1 = DateTime.Now;
+        }
+
+        public void OnOutButtonClick()
+        {
+            int d = 0;
+          
+            Time2 = DateTime.Now;
         }
 
 
