@@ -30,13 +30,20 @@ namespace Attandance_App.ViewModels
         private string latitude1;
 
         [ObservableProperty]
-        private double longtitude1;
+        private string longitude1;
+
+        [ObservableProperty]
+        private string latitude2;
+
+        [ObservableProperty]
+        private string longitude2;
 
         [RelayCommand]
         public void OnInButtonClick()
         {
             Time1 = DateTime.Now;
-            GetCachedLocation();
+            //Latitude1 = GetLatiLocation();
+            //Longitude1 = GetLongLocation();
         }
 
         [RelayCommand]
@@ -44,18 +51,40 @@ namespace Attandance_App.ViewModels
         {
             Time2 = DateTime.Now;
             Time3 = Time2.Subtract(Time1);
+            //Latitude2 = GetLatiLocation();
+            //Longitude2 = GetLongLocation();
 
         }
 
         [RelayCommand]
-        public async Task<string> GetCachedLocation()
+        public async Task<string> GetLatiLocation()
         {
             try
             {
                 location = await Geolocation.Default.GetLastKnownLocationAsync();
 
                 if (location != null)
-                    return Latitude1 = location.Latitude;
+                    return $"{location.Latitude}";
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                // Handle not supported on device exception
+            }
+
+
+            return "None";
+        }
+
+        [RelayCommand]
+        public async Task<string> GetLongLocation()
+        {
+            try
+            {
+                location = await Geolocation.Default.GetLastKnownLocationAsync();
+
+                if (location != null)
+                    return $"{location.Longitude}";
             }
             catch (Exception e)
             {

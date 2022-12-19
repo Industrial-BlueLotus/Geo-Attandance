@@ -127,7 +127,7 @@
                     <Setter Property="FontSize" Value="18" />
                     <Setter Property="FontAttributes" Value="Bold" />
                     <Setter Property="HorizontalOptions" Value="Center" />
-                    <Setter Property="HeightRequest" Value="20" />
+                    <Setter Property="HeightRequest" Value="30" />
 
 
                 </Style>
@@ -207,7 +207,7 @@
 
                 <Button HeightRequest="60" WidthRequest="300" Grid.Row="9" x:Name="outbtn" Text="Out" Style="{StaticResource outButtonStyle}" SemanticProperties.Hint="navigate when clicked" Command="{Binding OutButtonClickCommand}" HorizontalOptions="Center" />
 
-                <HorizontalStackLayout Grid.Row="10">
+                <HorizontalStackLayout Grid.Row="11">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50" />
@@ -241,7 +241,7 @@
 
                 </HorizontalStackLayout>
 
-                <ScrollView Grid.Row="12" Orientation="Horizontal" HeightRequest="320" WidthRequest="1100">
+                <ScrollView Grid.Row="12" Orientation="Horizontal" HeightRequest="320" WidthRequest="400">
 
                     <Grid>
                         <Grid.RowDefinitions>
@@ -254,7 +254,7 @@
 
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="150" />
                             <ColumnDefinition Width="120" />
                             <ColumnDefinition Width="120" />
                             <ColumnDefinition Width="100" />
@@ -278,14 +278,15 @@
 
                         <!--<Entry Placeholder="text" Text="{Binding Time1, Path=Time, StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" TextColor="White" />-->
 
-                        <Entry Text="{Binding Time1,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" TextColor="White" />
-                        <Entry Text="{Binding Time2,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" TextColor="White" />
-                        <Entry Text="{Binding Time3,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="2" />
-                        <Label Text="{Binding Source={x:Reference mDatePicker},Mode=TwoWay, Path=Date ,StringFormat='{}{0:MM/dd/yyyy}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="3" />
-                        <Label Text="{Binding Latitude1, Mode=TwoWay} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="4" TextColor="White" />
-                        <Label Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="5" />
-                        <Label Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="6" />
-                        <Label Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="7" />
+                        <Label Text="{Binding Time1,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0"/>
+                        <Label Text="{Binding Time2,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" />
+                        <Label Text="{Binding Time3,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="2" />
+                        <Label Text="{Binding Source={x:Reference mpicker}, Path=SelectedItem}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="3" />
+                        <!--<Label Text="{Binding Latitude1, Mode=TwoWay} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="4" TextColor="White" />
+                        <Label Text="{Binding Longitude1, Mode=TwoWay} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="5" TextColor="White" />
+                        <Label Text="{Binding Latitude2, Mode=TwoWay} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="6" TextColor="White" />
+                        <Label Text="{Binding Longitude2, Mode=TwoWay} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="7" TextColor="White" />-->
+
 
 
                         <!--<Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="0" />
