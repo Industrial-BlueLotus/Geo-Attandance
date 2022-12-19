@@ -20,7 +20,7 @@
                     <Setter Property="Margin" Value="25,0,25,10" />
                 </Style>
                 <Style x:Key="comboStyle" TargetType="Label">
-                    <Setter Property="Margin" Value="25,0,25,10" />
+                    <Setter Property="Margin" Value="25,0,25,0" />
                 </Style>
                 <Style x:Key="nameStyle" TargetType="Label">
                     <Setter Property="FontSize" Value="18" />
@@ -59,7 +59,6 @@
                     <Setter Property="BorderColor" Value="Black" />
                     <Setter Property="CornerRadius" Value="15" />
                     <Setter Property="BorderWidth" Value="5" />
-                    <Setter Property="WidthRequest" Value="200" />
                     <Setter Property="FontSize" Value="18" />
                     <Setter Property="FontAttributes" Value="Bold" />
 
@@ -70,7 +69,6 @@
                     <Setter Property="BorderColor" Value="Black" />
                     <Setter Property="CornerRadius" Value="15" />
                     <Setter Property="BorderWidth" Value="5" />
-                    <Setter Property="WidthRequest" Value="200" />
                     <Setter Property="FontSize" Value="18" />
                     <Setter Property="FontAttributes" Value="Bold" />
 
@@ -132,7 +130,6 @@
                     <Setter Property="HeightRequest" Value="20" />
 
 
-
                 </Style>
                 <Style x:Key="tableContStyle" TargetType="Label">
 
@@ -141,6 +138,7 @@
                     <Setter Property="FontAttributes" Value="Italic" />
                     <Setter Property="HorizontalOptions" Value="Center" />
                     <Setter Property="HeightRequest" Value="20" />
+                    <Setter Property="WidthRequest" Value="100" />
 
 
 
@@ -155,17 +153,17 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
                     <RowDefinition Height="80" />
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="0" />
                     <RowDefinition Height="100" />
                     <RowDefinition Height="100" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="200" />
                     <RowDefinition Height="100" />
                     <RowDefinition Height="100" />
 
@@ -192,7 +190,7 @@
                 <Label Grid.Row="4" Style="{StaticResource label1Style}" Text="Location" HorizontalOptions="Start" VerticalOptions="Start" />
 
 
-                <Picker Grid.Row="5" x:Name="mpicker" Title="Select a Company" Style="{StaticResource comboStyle}" TextColor="White">
+                <Picker Grid.Row="5" x:Name="mpicker" Title="Select a Company" HeightRequest="60" Style="{StaticResource comboStyle}" TextColor="White">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>BL360</x:String>
@@ -205,9 +203,9 @@
                     </Picker.ItemsSource>
                 </Picker>
 
-                <Button HeightRequest="60" WidthRequest="300" Grid.Row="7" x:Name="inbtn" Text="In" Style="{StaticResource inButtonStyle}" SemanticProperties.Hint="navigate when clicked" Command="{Binding InButtonClickCommand}" HorizontalOptions="Center" />
+                <Button HeightRequest="60" WidthRequest="300" Grid.Row="8" x:Name="inbtn" Text="In" Style="{StaticResource inButtonStyle}" SemanticProperties.Hint="navigate when clicked" Command="{Binding InButtonClickCommand}" HorizontalOptions="Center" />
 
-                <Button HeightRequest="60" WidthRequest="300" Grid.Row="8" x:Name="outbtn" Text="Out" Style="{StaticResource outButtonStyle}" SemanticProperties.Hint="navigate when clicked" Command="{Binding InButtonClickCommand}" HorizontalOptions="Center" />
+                <Button HeightRequest="60" WidthRequest="300" Grid.Row="9" x:Name="outbtn" Text="Out" Style="{StaticResource outButtonStyle}" SemanticProperties.Hint="navigate when clicked" Command="{Binding OutButtonClickCommand}" HorizontalOptions="Center" />
 
                 <HorizontalStackLayout Grid.Row="10">
                     <Grid>
@@ -243,7 +241,7 @@
 
                 </HorizontalStackLayout>
 
-                <ScrollView Grid.Row="12" Orientation="Horizontal" HeightRequest="320" WidthRequest="300">
+                <ScrollView Grid.Row="12" Orientation="Horizontal" HeightRequest="320" WidthRequest="1100">
 
                     <Grid>
                         <Grid.RowDefinitions>
@@ -256,14 +254,14 @@
 
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="120" />
                             <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
 
 
                         </Grid.ColumnDefinitions>
@@ -280,25 +278,24 @@
 
                         <!--<Entry Placeholder="text" Text="{Binding Time1, Path=Time, StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" TextColor="White" />-->
 
-                        <Editor Text="{Binding Time1,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" TextColor="White" />
-                        <Entry Placeholder="text" Text="{Binding Time2, StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" TextColor="White" />
-                        <Label Text="{Binding Source={x:Reference mDatePicker},Mode=TwoWay, Path=Date ,StringFormat='{}{0:MM/dd/yyyy}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="2" />
-                        <Editor Text="{Binding Source={x:Reference mpicker}}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="3" />
+                        <Entry Text="{Binding Time1,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" TextColor="White" />
+                        <Entry Text="{Binding Time2,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" TextColor="White" />
+                        <Entry Text="{Binding Time3,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="2" />
+                        <Label Text="{Binding Source={x:Reference mDatePicker},Mode=TwoWay, Path=Date ,StringFormat='{}{0:MM/dd/yyyy}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="3" />
+                        <Label Text="{Binding Latitude1, Mode=TwoWay} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="4" TextColor="White" />
+                        <Label Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="5" />
+                        <Label Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="6" />
+                        <Label Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="7" />
 
-                        <Label Text="{Binding Latitude, Mode=TwoWay} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="4" TextColor="White" />
-                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="5" />
-                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="6" />
-                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="7" />
 
-
-                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="0" />
+                        <!--<Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="0" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="1" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="2" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="3" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="4" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="5" />
                         <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="6" />
-                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="7" />
+                        <Editor Text="IN " Style="{StaticResource tableContStyle}" Grid.Row="2" Grid.Column="7" />-->
 
 
 
