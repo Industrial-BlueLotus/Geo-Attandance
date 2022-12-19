@@ -278,14 +278,14 @@
 
                         <!--<Entry Placeholder="text" Text="{Binding Time1, Path=Time, StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" TextColor="White" />-->
 
-                        <Label Text="{Binding Time1,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0"/>
+                        <Label Text="{Binding Time1,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" />
                         <Label Text="{Binding Time2,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" />
                         <Label Text="{Binding Time3,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="2" />
                         <Label Text="{Binding Source={x:Reference mpicker}, Path=SelectedItem}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="3" />
-                        <!--<Label Text="{Binding Latitude1, Mode=TwoWay} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="4" TextColor="White" />
+                        <Label Text="{Binding Latitude1, Mode=TwoWay} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="4" TextColor="White" />
                         <Label Text="{Binding Longitude1, Mode=TwoWay} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="5" TextColor="White" />
                         <Label Text="{Binding Latitude2, Mode=TwoWay} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="6" TextColor="White" />
-                        <Label Text="{Binding Longitude2, Mode=TwoWay} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="7" TextColor="White" />-->
+                        <Label Text="{Binding Longitude2, Mode=TwoWay} " Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="7" TextColor="White" />
 
 
 

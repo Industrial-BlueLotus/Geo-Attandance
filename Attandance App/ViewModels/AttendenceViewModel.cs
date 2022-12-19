@@ -12,6 +12,8 @@ namespace Attandance_App.ViewModels
 {
     public partial class AttendenceViewModel : ObservableObject
     {
+        private CancellationTokenSource _cancelTokenSource;
+        private bool _isCheckingLocation;
 
 
         [ObservableProperty]
@@ -39,20 +41,20 @@ namespace Attandance_App.ViewModels
         private string longitude2;
 
         [RelayCommand]
-        public void OnInButtonClick()
+        public async void OnInButtonClick()
         {
             Time1 = DateTime.Now;
-            //Latitude1 = GetLatiLocation();
-            //Longitude1 = GetLongLocation();
+            Latitude1 = await GetLatiLocation();
+            Longitude1 = await GetLongLocation();
         }
 
         [RelayCommand]
-        public void OnOutButtonClick()
+        public async void OnOutButtonClick()
         {
             Time2 = DateTime.Now;
             Time3 = Time2.Subtract(Time1);
-            //Latitude2 = GetLatiLocation();
-            //Longitude2 = GetLongLocation();
+            Latitude2 = await GetLatiLocation();
+            Longitude2 = await GetLongLocation();
 
         }
 
@@ -61,7 +63,15 @@ namespace Attandance_App.ViewModels
         {
             try
             {
-                location = await Geolocation.Default.GetLastKnownLocationAsync();
+                _isCheckingLocation = true;
+
+                GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
+
+                _cancelTokenSource = new CancellationTokenSource();
+
+                 location = await Geolocation.Default.GetLocationAsync(request, _cancelTokenSource.Token);
+
+
 
                 if (location != null)
                     return $"{location.Latitude}";
