@@ -49,9 +49,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\add.png" />
-	  <None Remove="Resources\Images\edit.png" />
-	  <None Remove="Resources\Images\save.png" />
+		<None Remove="Resources\Images\add.png" />
+		<None Remove="Resources\Images\edit.png" />
+		<None Remove="Resources\Images\save.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -61,12 +61,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\Desktop\DesktopStartupPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Mobile\MobileStartupPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+		<MauiXaml Update="Views\Desktop\DesktopStartupPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Views\Mobile\MobileStartupPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 	</ItemGroup>
 
 </Project>

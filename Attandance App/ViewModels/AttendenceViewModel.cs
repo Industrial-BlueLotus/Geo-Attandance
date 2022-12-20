@@ -69,8 +69,9 @@ namespace Attandance_App.ViewModels
 
                 _cancelTokenSource = new CancellationTokenSource();
 
-                 location = await Geolocation.Default.GetLocationAsync(request, _cancelTokenSource.Token);
+                location = await Geolocation.Default.GetLocationAsync(request, _cancelTokenSource.Token);
 
+                //location = await Geolocation.Default.GetLastKnownLocationAsync();
 
 
                 if (location != null)

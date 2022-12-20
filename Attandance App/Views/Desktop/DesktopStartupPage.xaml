@@ -241,7 +241,7 @@
 
                 </HorizontalStackLayout>
 
-                <ScrollView Grid.Row="12" Orientation="Horizontal" HeightRequest="320" WidthRequest="400">
+                <ScrollView Grid.Row="12" Orientation="Horizontal" HeightRequest="320" WidthRequest="300">
 
                     <Grid>
                         <Grid.RowDefinitions>
