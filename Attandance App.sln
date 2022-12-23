@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attandance App", "Attandance App\Attandance App.csproj", "{B5AA93F7-0413-4307-9AF8-2E32DF512CDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{81486B2F-2D26-4026-A70D-265C30B3D6C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{B5AA93F7-0413-4307-9AF8-2E32DF512CDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5AA93F7-0413-4307-9AF8-2E32DF512CDE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B5AA93F7-0413-4307-9AF8-2E32DF512CDE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{81486B2F-2D26-4026-A70D-265C30B3D6C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81486B2F-2D26-4026-A70D-265C30B3D6C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81486B2F-2D26-4026-A70D-265C30B3D6C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81486B2F-2D26-4026-A70D-265C30B3D6C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

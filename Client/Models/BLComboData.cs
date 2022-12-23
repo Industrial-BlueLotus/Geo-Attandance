@@ -1,4 +1,4 @@
-﻿using Attandance_App.Models;
+﻿using Client.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Attandance_App.Models
+namespace Client.Models
 
 {
 
