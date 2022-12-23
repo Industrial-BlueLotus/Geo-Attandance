@@ -2,7 +2,7 @@
 //using BlueLotus360.Com.Client.Infrastructure.Extensions;
 //using BlueLotus360.Com.Client.Infrastructure.Routes;
 //using BlueLotus360.Com.Shared.Wrapper;
-//using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using Attandance_App.Routes;
-using Client.Managers.HR;
+
 
 namespace Client.Managers
 {
@@ -413,27 +413,27 @@ namespace Client.Managers
             return _emp;
         }
 
-        public async Task<IList<PaySlipDetails>> GeneratePaySlip(SalaryHistory req)
-        {
-            _checkIfExceptionReturn = false;
-            IList<PaySlipDetails> _paySlip = new List<PaySlipDetails>();
+        //public async Task<IList<PaySlipDetails>> GeneratePaySlip(SalaryHistory req)
+        //{
+        //    _checkIfExceptionReturn = false;
+        //    IList<PaySlipDetails> _paySlip = new List<PaySlipDetails>();
 
-            try
-            {
-                var response = await _httpClient.PostAsJsonAsync(TokenEndpoints.Generate_Payslip_EndPoint, req);
-                await response.Content.LoadIntoBufferAsync();
-                string content = response.Content.ReadAsStringAsync().Result;
-                _paySlip = JsonConvert.DeserializeObject<List<PaySlipDetails>>(content);
+        //    try
+        //    {
+        //        var response = await _httpClient.PostAsJsonAsync(TokenEndpoints.Generate_Payslip_EndPoint, req);
+        //        await response.Content.LoadIntoBufferAsync();
+        //        string content = response.Content.ReadAsStringAsync().Result;
+        //        _paySlip = JsonConvert.DeserializeObject<List<PaySlipDetails>>(content);
 
-            }
-            catch (Exception exp)
-            {
-                _checkIfExceptionReturn = true;
+        //    }
+        //    catch (Exception exp)
+        //    {
+        //        _checkIfExceptionReturn = true;
 
-            }
+        //    }
 
-            return _paySlip;
-        }
+        //    return _paySlip;
+        //}
 
 
         public bool IsExceptionthrown()

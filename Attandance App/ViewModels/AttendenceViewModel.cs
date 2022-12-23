@@ -2,6 +2,9 @@
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.Devices.Sensors;
 using Microsoft.VisualBasic;
+using Newtonsoft.Json;
+using RestSharp;
+using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +42,7 @@ namespace Attandance_App.ViewModels
 
         [ObservableProperty]
         private string longitude2;
+        private object tok;
 
         [RelayCommand]
         public async void OnInButtonClick()
@@ -46,6 +50,27 @@ namespace Attandance_App.ViewModels
             Time1 = DateTime.Now;
             Latitude1 = await GetLatiLocation();
             Longitude1 = await GetLongLocation();
+
+            var client = new RestClient();
+
+            //client.Timeout = -1;
+            var request = new RestRequest("http://localhost:62185/api/HR/In").AddJsonBody(tok);
+            request.Method = Method.Post;
+            request.AddHeader("Accept", "application/json");
+
+            request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
+            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlZpaGFuLkJMIiwibmFtZWlkIjoiVmloYW4uQkwiLCJyb2xlIjoiVXNlciIsIkZpcnN0TmFtZSI6IlZpaGFuLkJMIiwiTGFzdE5hbWUiOiJWaWhhbi5CTCIsIlVzZXJJZCI6IlZpaGFuLkJMIiwiRW1haWwiOiJObyBFbWFpbCIsIkNDRCI6Ii0tTk9OQ0UtLSIsIm5iZiI6MTY3MTcwNDcxNywiZXhwIjoxNjcxNzQ3OTE3LCJpYXQiOjE2NzE3MDQ3MTd9.nyqOTKGJLCba2QgRwG24cIwT4a9iwP41_I5AV1kSqC4");
+            request.AddHeader("Content-Type", "application/json");
+            var response = await client.PostAsync(request);
+            var content = response.Content.ToString();
+            //var result = JsonConvert.DeserializeObject<TokenResponse>(content);
+
+            //var request = new RestRequest(Method.POST);
+
+
+            request.AddParameter("application/json", body, ParameterType.RequestBody);
+            RestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
         }
 
         [RelayCommand]
