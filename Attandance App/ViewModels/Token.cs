@@ -6,42 +6,40 @@ using System.Threading.Tasks;
 
 namespace Attandance_App.ViewModels
 {
-    internal class Token
+    public class Token
     {
-        var body = @"{
-            " + "\n" +
-                @"    ""CompanyId"": 156,
-            " + "\n" +
-                @"    ""UserKey"" : 342922,
-            " + "\n" +
-                @"    ""EmpKy"" :874258,
-            " + "\n" +
-                @"    ""ShiftKy"" : 389916,
-            " + "\n" +
-                @"    ""Latitude"": 0.00,
-            " + "\n" +
-                @"    ""Longitude"" : 0.00,
-            " + "\n" +
-                @"    ""Location"":{
-            " + "\n" +
-                @"        ""CodeKey"":397113,
-            " + "\n" +
-                @"        ""CodeName"":""""
-            " + "\n" +
-                @"    },
-            " + "\n" +
-                @"    ""MultiAtnDetKy"":1,
-            " + "\n" +
-                @"    ""IsHoliday"":0,
-            " + "\n" +
-                @"    ""IsIn"":1,
-            " + "\n" +
-                @"    ""IsOut"":0,
-            " + "\n" +
-                @"    ""IsoutWithoutIn"":0
-            " + "\n" +
-                @"
-            " + "\n" +
-                 @"}";
+        public int CompanyId { get; set; }
+        public int UserKey { get; set; }
+        public int EmpKy { get; set; }
+
+        public int ShiftKy { get; set; }
+
+        public double Latitude { get; set; }
+
+        public double Longitude { get; set; }
+
+        public LocationParam Location { get; set; }
+
+        public int MultiAtnDetKy { get; set; }
+
+        public int IsHoliday { get; set; }
+
+        public int IsIn { get; set; }
+
+        public int IsOut { get; set; }
+
+        public int IsoutWithoutIn { get; set; }
+
+
+
+
+    }
+
+    public class LocationParam
+    {
+
+        public int CodeKey { get; set; }
+        public string CodeName { get; set; }
+
     }
 }

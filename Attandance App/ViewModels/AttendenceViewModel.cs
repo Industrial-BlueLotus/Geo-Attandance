@@ -8,6 +8,7 @@ using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -42,7 +43,7 @@ namespace Attandance_App.ViewModels
 
         [ObservableProperty]
         private string longitude2;
-        private object tok;
+        private Token tok;
 
         [RelayCommand]
         public async void OnInButtonClick()
@@ -53,24 +54,78 @@ namespace Attandance_App.ViewModels
 
             var client = new RestClient();
 
+            tok = new Token();
+
+            tok.CompanyId = 156;
+            tok.UserKey = 342922;
+            tok.EmpKy = 874258;
+            tok.ShiftKy = 389916;
+            tok.Latitude = 0.00;
+            tok.Longitude = 0.00;
+
+            LocationParam lp = new LocationParam();
+
+            lp.CodeKey = 397113;
+            lp.CodeName = "";
+
+            tok.Location = lp;
+
+            tok.MultiAtnDetKy = 1;
+            tok.IsHoliday = 0;
+            tok.IsIn = 1;
+            tok.IsOut = 0;
+            tok.IsoutWithoutIn = 0;
+
+
+
             //client.Timeout = -1;
             var request = new RestRequest("http://localhost:62185/api/HR/In").AddJsonBody(tok);
             request.Method = Method.Post;
             request.AddHeader("Accept", "application/json");
 
             request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
-            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlZpaGFuLkJMIiwibmFtZWlkIjoiVmloYW4uQkwiLCJyb2xlIjoiVXNlciIsIkZpcnN0TmFtZSI6IlZpaGFuLkJMIiwiTGFzdE5hbWUiOiJWaWhhbi5CTCIsIlVzZXJJZCI6IlZpaGFuLkJMIiwiRW1haWwiOiJObyBFbWFpbCIsIkNDRCI6Ii0tTk9OQ0UtLSIsIm5iZiI6MTY3MTcwNDcxNywiZXhwIjoxNjcxNzQ3OTE3LCJpYXQiOjE2NzE3MDQ3MTd9.nyqOTKGJLCba2QgRwG24cIwT4a9iwP41_I5AV1kSqC4");
+            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlZpaGFuLkJMIiwibmFtZWlkIjoiVmloYW4uQkwiLCJyb2xlIjoiVXNlciIsIkZpcnN0TmFtZSI6IlZpaGFuLkJMIiwiTGFzdE5hbWUiOiJWaWhhbi5CTCIsIlVzZXJJZCI6IlZpaGFuLkJMIiwiRW1haWwiOiJObyBFbWFpbCIsIkNDRCI6Ii0tTk9OQ0UtLSIsIm5iZiI6MTY3MjMwNTgwOCwiZXhwIjoxNjcyMzQ5MDA4LCJpYXQiOjE2NzIzMDU4MDh9.Wqs9EJbcjSeidfACfbeKpOXSTBnq2xYvf0T5JSMZi_w");
             request.AddHeader("Content-Type", "application/json");
-            var response = await client.PostAsync(request);
-            var content = response.Content.ToString();
-            //var result = JsonConvert.DeserializeObject<TokenResponse>(content);
 
+            //request.AddJsonBody
+            //request.AddParameter("CompanyId", "156", ParameterType.GetOrPost);
+            //request.AddParameter("UserKey", "342922", ParameterType.GetOrPost);
+            //request.AddParameter("EmpKy", "874258", ParameterType.GetOrPost);
+            //request.AddParameter("ShiftKy", "389916", ParameterType.GetOrPost);
+            //request.AddParameter("Latitude", "0.00", ParameterType.GetOrPost);
+            //request.AddParameter("Longitude", "0.00", ParameterType.GetOrPost);
+            //request.AddParameter("Location.Codekey", "397113", ParameterType.GetOrPost);
+            //request.AddParameter("MultiAtnDetKy", "1", ParameterType.GetOrPost);
+            //request.AddParameter("IsHoliday", "0", ParameterType.GetOrPost);
+            //request.AddParameter("IsIn", "1", ParameterType.GetOrPost);
+            //request.AddParameter("IsOut", "0", ParameterType.GetOrPost);
+            //request.AddParameter("IsoutWithoutIn", "0", ParameterType.GetOrPost);
+
+            //var response = await client.PostAsync(request);
+            //var content = response.Content.ToString();
+
+            //var result = JsonConvert.DeserializeObject<TokenResponse>(content);
             //var request = new RestRequest(Method.POST);
 
+            //request.AddParameter("application/json", body, ParameterType.RequestBody);
 
-            request.AddParameter("application/json", body, ParameterType.RequestBody);
-            RestResponse response = client.Execute(request);
-            Console.WriteLine(response.Content);
+            //RestResponse response = client.Execute(request);
+            RestResponse response = await client.PostAsync(request);
+
+
+
+            // Check the status code of the response
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                // Read the response data
+                var responseContent = response.Content.ToString();
+
+                Console.WriteLine(responseContent);
+            }
+            else
+            {
+                Console.WriteLine("Request failed with status code: " + response.StatusCode);
+            }
         }
 
         [RelayCommand]
