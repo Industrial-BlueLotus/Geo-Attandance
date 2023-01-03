@@ -12,7 +12,8 @@ namespace Attandance_App.Routes
         private static string ProductionBaseURL = "https://bluelotus360.co/CoreAPI/api/";
 
         private static string ReportDevURL = "http://localhost:62185/api/";
-        private static string DevURL = "https://localhost:7036/api/";
+        //private static string DevURL = "https://localhost:7036/api/";
+        private static string DevURL = "https://10.0.2.2:62185/api/";
 
         private static bool IsDevMode = false;
         public static string BaseURL

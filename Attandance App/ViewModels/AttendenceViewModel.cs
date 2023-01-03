@@ -52,58 +52,58 @@ namespace Attandance_App.ViewModels
             Latitude1 = await GetLatiLocation();
             Longitude1 = await GetLongLocation();
 
-            var client = new RestClient();
+            //var client = new RestClient();
 
-            tok = new Token();
+            //tok = new Token();
 
-            tok.CompanyId = 156;
-            tok.UserKey = 342922;
-            tok.EmpKy = 874258;
-            tok.ShiftKy = 389916;
-            tok.Latitude = 0.00;
-            tok.Longitude = Longitude1;
+            //tok.CompanyId = 156;
+            //tok.UserKey = 342922;
+            //tok.EmpKy = 874258;
+            //tok.ShiftKy = 389916;
+            //tok.Latitude = 0.00;
+            //tok.Longitude = Longitude1;
 
-            LocationParam lp = new LocationParam();
+            //LocationParam lp = new LocationParam();
 
-            lp.CodeKey = 397113;
-            lp.CodeName = "";
+            //lp.CodeKey = 397113;
+            //lp.CodeName = "";
 
-            tok.Location = lp;
+            //tok.Location = lp;
 
-            tok.MultiAtnDetKy = 1;
-            tok.IsHoliday = 0;
-            tok.IsIn = 1;
-            tok.IsOut = 0;
-            tok.IsoutWithoutIn = 0;
-
-
-
-            //client.Timeout = -1;
-            var request = new RestRequest("http://localhost:62185/api/HR/In").AddJsonBody(tok);
-            request.Method = Method.Post;
-            request.AddHeader("Accept", "application/json");
-
-            request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
-            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlZpaGFuLkJMIiwibmFtZWlkIjoiVmloYW4uQkwiLCJyb2xlIjoiVXNlciIsIkZpcnN0TmFtZSI6IlZpaGFuLkJMIiwiTGFzdE5hbWUiOiJWaWhhbi5CTCIsIlVzZXJJZCI6IlZpaGFuLkJMIiwiRW1haWwiOiJObyBFbWFpbCIsIkNDRCI6Ii0tTk9OQ0UtLSIsIm5iZiI6MTY3MjM4ODg5OCwiZXhwIjoxNjcyNDMyMDk4LCJpYXQiOjE2NzIzODg4OTh9.z1Pa32yJdAP4lp3GQR9jthGLAhZqvV-vaPy69oLlojY");
-            request.AddHeader("Content-Type", "application/json");
-
-
-            RestResponse response = await client.PostAsync(request);
+            //tok.MultiAtnDetKy = 1;
+            //tok.IsHoliday = 0;
+            //tok.IsIn = 1;
+            //tok.IsOut = 0;
+            //tok.IsoutWithoutIn = 0;
 
 
 
-            // Check the status code of the response
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                // Read the response data
-                var responseContent = response.Content.ToString();
+            ////client.Timeout = -1;
+            //var request = new RestRequest("http://10.0.2.2:62185/api/HR/In").AddJsonBody(tok);
+            //request.Method = Method.Post;
+            //request.AddHeader("Accept", "application/json");
 
-                Console.WriteLine(responseContent);
-            }
-            else
-            {
-                Console.WriteLine("Request failed with status code: " + response.StatusCode);
-            }
+            //request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
+            //request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlZpaGFuLkJMIiwibmFtZWlkIjoiVmloYW4uQkwiLCJyb2xlIjoiVXNlciIsIkZpcnN0TmFtZSI6IlZpaGFuLkJMIiwiTGFzdE5hbWUiOiJWaWhhbi5CTCIsIlVzZXJJZCI6IlZpaGFuLkJMIiwiRW1haWwiOiJObyBFbWFpbCIsIkNDRCI6Ii0tTk9OQ0UtLSIsIm5iZiI6MTY3MjcyMzQ0MiwiZXhwIjoxNjcyNzY2NjQyLCJpYXQiOjE2NzI3MjM0NDJ9.KPuoCgwGGKJvp9YKq7wm_HUV4PNTqeuMUsoBNai4lj4");
+            //request.AddHeader("Content-Type", "application/json");
+
+
+            //RestResponse response = await client.PostAsync(request);
+
+
+
+            //// Check the status code of the response
+            //if (response.StatusCode == HttpStatusCode.OK)
+            //{
+            //    // Read the response data
+            //    var responseContent = response.Content.ToString();
+
+            //    Console.WriteLine(responseContent);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Request failed with status code: " + response.StatusCode);
+            //}
         }
 
         [RelayCommand]
@@ -114,58 +114,58 @@ namespace Attandance_App.ViewModels
             Latitude2 = await GetLatiLocation();
             Longitude2 = await GetLongLocation();
 
-            var client = new RestClient();
+            //var client = new RestClient();
 
-            tok = new Token();
+            //tok = new Token();
 
-            tok.CompanyId = 156;
-            tok.UserKey = 342922;
-            tok.EmpKy = 874258;
-            tok.ShiftKy = 389916;
-            tok.Latitude = 0.00;
-            tok.Longitude = Longitude2;
+            //tok.CompanyId = 156;
+            //tok.UserKey = 342922;
+            //tok.EmpKy = 874258;
+            //tok.ShiftKy = 389916;
+            //tok.Latitude = 0.00;
+            //tok.Longitude = Longitude2;
 
-            LocationParam lp = new LocationParam();
+            //LocationParam lp = new LocationParam();
 
-            lp.CodeKey = 397113;
-            lp.CodeName = "";
+            //lp.CodeKey = 397113;
+            //lp.CodeName = "";
 
-            tok.Location = lp;
+            //tok.Location = lp;
 
-            tok.MultiAtnDetKy = 1;
-            tok.IsHoliday = 0;
-            tok.IsIn = 1;
-            tok.IsOut = 1;
-            tok.IsoutWithoutIn = 0;
-
-
-
-            //client.Timeout = -1;
-            var request = new RestRequest("http://localhost:62185/api/HR/In").AddJsonBody(tok);
-            request.Method = Method.Post;
-            request.AddHeader("Accept", "application/json");
-
-            request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
-            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlZpaGFuLkJMIiwibmFtZWlkIjoiVmloYW4uQkwiLCJyb2xlIjoiVXNlciIsIkZpcnN0TmFtZSI6IlZpaGFuLkJMIiwiTGFzdE5hbWUiOiJWaWhhbi5CTCIsIlVzZXJJZCI6IlZpaGFuLkJMIiwiRW1haWwiOiJObyBFbWFpbCIsIkNDRCI6Ii0tTk9OQ0UtLSIsIm5iZiI6MTY3MjM4ODg5OCwiZXhwIjoxNjcyNDMyMDk4LCJpYXQiOjE2NzIzODg4OTh9.z1Pa32yJdAP4lp3GQR9jthGLAhZqvV-vaPy69oLlojY");
-            request.AddHeader("Content-Type", "application/json");
-
-
-            RestResponse response = await client.PostAsync(request);
+            //tok.MultiAtnDetKy = 1;
+            //tok.IsHoliday = 0;
+            //tok.IsIn = 1;
+            //tok.IsOut = 1;
+            //tok.IsoutWithoutIn = 0;
 
 
 
-            // Check the status code of the response
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                // Read the response data
-                var responseContent = response.Content.ToString();
+            ////client.Timeout = -1;
+            //var request = new RestRequest("http://10.0.2.2:62185/api/HR/In").AddJsonBody(tok);
+            //request.Method = Method.Post;
+            //request.AddHeader("Accept", "application/json");
 
-                Console.WriteLine(responseContent);
-            }
-            else
-            {
-                Console.WriteLine("Request failed with status code: " + response.StatusCode);
-            }
+            //request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
+            //request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlZpaGFuLkJMIiwibmFtZWlkIjoiVmloYW4uQkwiLCJyb2xlIjoiVXNlciIsIkZpcnN0TmFtZSI6IlZpaGFuLkJMIiwiTGFzdE5hbWUiOiJWaWhhbi5CTCIsIlVzZXJJZCI6IlZpaGFuLkJMIiwiRW1haWwiOiJObyBFbWFpbCIsIkNDRCI6Ii0tTk9OQ0UtLSIsIm5iZiI6MTY3MjcyMzQ0MiwiZXhwIjoxNjcyNzY2NjQyLCJpYXQiOjE2NzI3MjM0NDJ9.KPuoCgwGGKJvp9YKq7wm_HUV4PNTqeuMUsoBNai4lj4");
+            //request.AddHeader("Content-Type", "application/json");
+
+
+            //RestResponse response = await client.PostAsync(request);
+
+
+
+            //// Check the status code of the response
+            //if (response.StatusCode == HttpStatusCode.OK)
+            //{
+            //    // Read the response data
+            //    var responseContent = response.Content.ToString();
+
+            //    Console.WriteLine(responseContent);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Request failed with status code: " + response.StatusCode);
+            //}
 
         }
 
