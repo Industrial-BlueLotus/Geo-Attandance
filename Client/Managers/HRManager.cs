@@ -38,7 +38,7 @@ namespace Client.Managers
                 emp = JsonConvert.DeserializeObject<UserDetails>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
                 emp = new UserDetails();
@@ -60,7 +60,7 @@ namespace Client.Managers
                 existingList = JsonConvert.DeserializeObject<List<MultiAtnAnlysis_Response>>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
                 existingList = new List<MultiAtnAnlysis_Response>();
@@ -81,7 +81,7 @@ namespace Client.Managers
                 att = JsonConvert.DeserializeObject<InShift>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
                 att = new InShift();
@@ -103,7 +103,7 @@ namespace Client.Managers
                 att = JsonConvert.DeserializeObject<MultiAtnAnlysis_Response>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
                 att = new MultiAtnAnlysis_Response();
@@ -123,7 +123,7 @@ namespace Client.Managers
 
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
             }
@@ -145,7 +145,7 @@ namespace Client.Managers
                 list = JsonConvert.DeserializeObject<MultiAtnAnlysis_Response>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
@@ -168,7 +168,7 @@ namespace Client.Managers
                 usrper = JsonConvert.DeserializeObject<UserPermission>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
@@ -191,7 +191,7 @@ namespace Client.Managers
                 lev_list = JsonConvert.DeserializeObject<List<LeaveDetails>>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
@@ -212,7 +212,7 @@ namespace Client.Managers
                 key = JsonConvert.DeserializeObject<int>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
@@ -233,7 +233,7 @@ namespace Client.Managers
                 user = JsonConvert.DeserializeObject<UserDetails>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
@@ -253,7 +253,7 @@ namespace Client.Managers
                 max_leave_hour = JsonConvert.DeserializeObject<decimal>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
@@ -273,7 +273,7 @@ namespace Client.Managers
                 leaves = JsonConvert.DeserializeObject<IList<LeaveSummary>>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
@@ -293,7 +293,7 @@ namespace Client.Managers
                 multiApprovalKey = JsonConvert.DeserializeObject<int>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
@@ -310,7 +310,7 @@ namespace Client.Managers
             {
                 await _httpClient.PostAsJsonAsync(TokenEndpoints.Apply_Leave_EndPoint, req);
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
@@ -326,7 +326,7 @@ namespace Client.Managers
             {
                 await _httpClient.PostAsJsonAsync(TokenEndpoints.Delete_Leave_EndPoint, req);
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
@@ -344,7 +344,7 @@ namespace Client.Managers
                 LevTrnKy = JsonConvert.DeserializeObject<int>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
@@ -365,7 +365,7 @@ namespace Client.Managers
                 _leaveList = JsonConvert.DeserializeObject<List<LeaveDetails>>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
@@ -382,7 +382,7 @@ namespace Client.Managers
             {
                 await _httpClient.PostAsJsonAsync(TokenEndpoints.Change_Leave_Status_EndPoint, req);
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
@@ -404,7 +404,7 @@ namespace Client.Managers
                 _emp = JsonConvert.DeserializeObject<EmployeeModel>(content);
 
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 _checkIfExceptionReturn = true;
 
