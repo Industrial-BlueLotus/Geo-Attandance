@@ -89,7 +89,7 @@ namespace Attandance_App.ViewModels
             request.AddHeader("Accept", "application/json");
 
             request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
-            request.AddHeader("Authorization", "Bearer {apitoken}");
+            request.AddHeader("Authorization", "Bearer "+apitoken);
             request.AddHeader("Content-Type", "application/json");
 
 
@@ -151,7 +151,7 @@ namespace Attandance_App.ViewModels
             request.AddHeader("Accept", "application/json");
 
             request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
-            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlZpaGFuLkJMIiwibmFtZWlkIjoiVmloYW4uQkwiLCJyb2xlIjoiVXNlciIsIkZpcnN0TmFtZSI6IlZpaGFuLkJMIiwiTGFzdE5hbWUiOiJWaWhhbi5CTCIsIlVzZXJJZCI6IlZpaGFuLkJMIiwiRW1haWwiOiJObyBFbWFpbCIsIkNDRCI6Ii0tTk9OQ0UtLSIsIm5iZiI6MTY3MjgxMjY0NiwiZXhwIjoxNjcyODU1ODQ2LCJpYXQiOjE2NzI4MTI2NDZ9.EGtnE_UQpd3GX4_b-tsSsAsFLht9d94jBJ4T7rq-m94");
+            request.AddHeader("Authorization", "Bearer "+apitoken);
             request.AddHeader("Content-Type", "application/json");
 
             RestResponse response = await client.PostAsync(request);
