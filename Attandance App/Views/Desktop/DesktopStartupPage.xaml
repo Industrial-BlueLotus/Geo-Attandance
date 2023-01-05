@@ -20,7 +20,7 @@
                     <Setter Property="Margin" Value="25,0,25,10" />
                 </Style>
                 <Style x:Key="comboStyle" TargetType="Label">
-                    <Setter Property="Margin" Value="25,0,25,0" />
+                    <Setter Property="Margin" Value="25,50,25,0" />
                 </Style>
                 <Style x:Key="nameStyle" TargetType="Label">
                     <Setter Property="FontSize" Value="18" />
@@ -51,6 +51,17 @@
                 </Style>
                 <Style x:Key="wbox3Style" TargetType="Label">
                     <Setter Property="Margin" Value="10,850,10,300" />
+
+                </Style>
+                <Style x:Key="DisButtonStyle" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="DarkBlue" />
+                    <Setter Property="TextColor" Value="white" />
+                    <Setter Property="BorderColor" Value="Black" />
+                    <Setter Property="CornerRadius" Value="15" />
+                    <Setter Property="BorderWidth" Value="5" />
+                    <Setter Property="FontSize" Value="18" />
+                    <Setter Property="FontAttributes" Value="Bold" />
+                    <Setter Property="Margin" Value="10,300,10,300" />
 
                 </Style>
                 <Style x:Key="inButtonStyle" TargetType="Button">
@@ -172,6 +183,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
 
+
                 </Grid.ColumnDefinitions>
 
 
@@ -188,10 +200,12 @@
 
                 <DatePicker Grid.Row="3" x:Name="mDatePicker" Style="{StaticResource dateStyle}" MinimumDate="01/01/2020" MaximumDate="12/31/2022" Date="01/01/2022" TextColor="White" />
 
-                <Label Grid.Row="4" Style="{StaticResource label1Style}" Text="Location" HorizontalOptions="Start" VerticalOptions="Start" />
+                <Button Grid.Row="4" HeightRequest="60" WidthRequest="300" Text="Display" Command="{Binding DatePickAyncCommand}" TextColor="Wheat" Style="{StaticResource DisButtonStyle}" />
+
+                <Label Grid.Row="6" Style="{StaticResource label1Style}" Text="Location" HorizontalOptions="Start" VerticalOptions="Start" />
 
 
-                <Picker Grid.Row="5" x:Name="mpicker" Title="Select a Company" HeightRequest="60" Style="{StaticResource comboStyle}" TextColor="White">
+                <Picker Grid.Row="7" x:Name="mpicker" Title="Select a Company" HeightRequest="60" Style="{StaticResource comboStyle}" TextColor="White">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>BL360</x:String>

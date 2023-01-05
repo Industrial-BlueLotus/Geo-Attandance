@@ -48,7 +48,7 @@ namespace Attandance_App.ViewModels
 
         private DateToken _dateToken;
 
-        private string apitoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzI5MDgyNDcsImV4cCI6MTY3Mjk1MTQ0NywiaWF0IjoxNjcyOTA4MjQ3fQ.7LpGp7njYBXgsANERTXJ0ztisbvhJ1HCiRNGpVLc8i8";
+        private string apitoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzI5MTgxMDMsImV4cCI6MTY3Mjk2MTMwMywiaWF0IjoxNjcyOTE4MTAzfQ.CcVb7Mlu819KIk4KjTVg71xx7VQzBHjx0lhgi2jWgEw";
 
         [RelayCommand]
         public async void OnInButtonClick()
@@ -89,7 +89,7 @@ namespace Attandance_App.ViewModels
             request.AddHeader("Accept", "application/json");
 
             request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
-            request.AddHeader("Authorization", "Bearer "+apitoken);
+            request.AddHeader("Authorization", "Bearer " + apitoken);
             request.AddHeader("Content-Type", "application/json");
 
 
@@ -151,7 +151,7 @@ namespace Attandance_App.ViewModels
             request.AddHeader("Accept", "application/json");
 
             request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
-            request.AddHeader("Authorization", "Bearer "+apitoken);
+            request.AddHeader("Authorization", "Bearer " + apitoken);
             request.AddHeader("Content-Type", "application/json");
 
             RestResponse response = await client.PostAsync(request);
@@ -173,11 +173,8 @@ namespace Attandance_App.ViewModels
 
         }
 
-        private void Datepicker_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DatePickAync();
-        }
 
+        [RelayCommand]
         public async void DatePickAync()
         {
             var client = new RestClient();
@@ -187,8 +184,8 @@ namespace Attandance_App.ViewModels
 
             _dateToken.EmpKy = 874258;
             _dateToken.CompanyId = 156;
-            _dateToken.FDT = new DateTime(2022 - 01 - 10);
-            _dateToken.TDT = new DateTime(2022 - 01 - 31);
+            _dateToken.FDT = "2022-01-10 ";
+            _dateToken.TDT = "2022-01-31 ";
             _dateToken.Chk = 0;
             _dateToken.PrjKy = 1;
             _dateToken.TaskKy = 1;
@@ -199,7 +196,7 @@ namespace Attandance_App.ViewModels
             request.AddHeader("Accept", "application/json");
 
             request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
-            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzI4OTA1NTUsImV4cCI6MTY3MjkzMzc1NSwiaWF0IjoxNjcyODkwNTU1fQ.dFO70i68Yx7XtglN96vgCPG3-fGNhbrvB_CH3FWQ8XA");
+            request.AddHeader("Authorization", "Bearer " + apitoken);
             request.AddHeader("Content-Type", "application/json");
 
             RestResponse response = await client.PostAsync(request);

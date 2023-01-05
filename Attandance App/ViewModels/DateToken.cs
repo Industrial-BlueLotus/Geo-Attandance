@@ -12,9 +12,9 @@ namespace Attandance_App.ViewModels
 
         public int CompanyId { get; set; }
 
-        public DateTime FDT { get; set; }
+        public string FDT { get; set; }
 
-        public DateTime TDT { get; set; }
+        public string TDT { get; set; }
 
         public int Chk { get; set; }
 
