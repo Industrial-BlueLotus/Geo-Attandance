@@ -40,6 +40,4 @@ public partial class DesktopStartupPage : ContentPage
     }
 
 
-
-
 }

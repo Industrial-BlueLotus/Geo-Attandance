@@ -46,6 +46,10 @@ namespace Attandance_App.ViewModels
 
         private Token tok;
 
+        private DateToken _dateToken;
+
+        private string apitoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzI5MDgyNDcsImV4cCI6MTY3Mjk1MTQ0NywiaWF0IjoxNjcyOTA4MjQ3fQ.7LpGp7njYBXgsANERTXJ0ztisbvhJ1HCiRNGpVLc8i8";
+
         [RelayCommand]
         public async void OnInButtonClick()
         {
@@ -85,7 +89,7 @@ namespace Attandance_App.ViewModels
             request.AddHeader("Accept", "application/json");
 
             request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
-            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlZpaGFuLkJMIiwibmFtZWlkIjoiVmloYW4uQkwiLCJyb2xlIjoiVXNlciIsIkZpcnN0TmFtZSI6IlZpaGFuLkJMIiwiTGFzdE5hbWUiOiJWaWhhbi5CTCIsIlVzZXJJZCI6IlZpaGFuLkJMIiwiRW1haWwiOiJObyBFbWFpbCIsIkNDRCI6Ii0tTk9OQ0UtLSIsIm5iZiI6MTY3MjgxMjY0NiwiZXhwIjoxNjcyODU1ODQ2LCJpYXQiOjE2NzI4MTI2NDZ9.EGtnE_UQpd3GX4_b-tsSsAsFLht9d94jBJ4T7rq-m94");
+            request.AddHeader("Authorization", "Bearer {apitoken}");
             request.AddHeader("Content-Type", "application/json");
 
 
@@ -167,6 +171,53 @@ namespace Attandance_App.ViewModels
                 Console.WriteLine("Request failed with status code: " + response.StatusCode);
             }
 
+        }
+
+        private void Datepicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DatePickAync();
+        }
+
+        public async void DatePickAync()
+        {
+            var client = new RestClient();
+
+            _dateToken = new DateToken();
+
+
+            _dateToken.EmpKy = 874258;
+            _dateToken.CompanyId = 156;
+            _dateToken.FDT = new DateTime(2022 - 01 - 10);
+            _dateToken.TDT = new DateTime(2022 - 01 - 31);
+            _dateToken.Chk = 0;
+            _dateToken.PrjKy = 1;
+            _dateToken.TaskKy = 1;
+
+
+            var request = new RestRequest("https://bl360x.com/BLEComTest/api/HR/MultiAtnAnlysis").AddJsonBody(_dateToken);
+            request.Method = Method.Post;
+            request.AddHeader("Accept", "application/json");
+
+            request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
+            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzI4OTA1NTUsImV4cCI6MTY3MjkzMzc1NSwiaWF0IjoxNjcyODkwNTU1fQ.dFO70i68Yx7XtglN96vgCPG3-fGNhbrvB_CH3FWQ8XA");
+            request.AddHeader("Content-Type", "application/json");
+
+            RestResponse response = await client.PostAsync(request);
+
+
+
+            // Check the status code of the response
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                // Read the response data
+                var responseContent = response.Content.ToString();
+
+                Console.WriteLine(responseContent);
+            }
+            else
+            {
+                Console.WriteLine("Request failed with status code: " + response.StatusCode);
+            }
         }
 
         [RelayCommand]
