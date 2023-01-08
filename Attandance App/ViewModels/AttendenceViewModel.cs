@@ -11,6 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http.Json;
 
 namespace Attandance_App.ViewModels
 {
@@ -48,7 +49,7 @@ namespace Attandance_App.ViewModels
 
         private DateToken _dateToken;
 
-        private string apitoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzI5MTgxMDMsImV4cCI6MTY3Mjk2MTMwMywiaWF0IjoxNjcyOTE4MTAzfQ.CcVb7Mlu819KIk4KjTVg71xx7VQzBHjx0lhgi2jWgEw";
+        private string apitoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzMxOTY0NDksImV4cCI6MTY3MzIzOTY0OSwiaWF0IjoxNjczMTk2NDQ5fQ.VBY8UwwCbuC5MMAKq24WMLddU2pnBRJ7-hOosUAYJX0";
 
         [RelayCommand]
         public async void OnInButtonClick()
@@ -207,9 +208,16 @@ namespace Attandance_App.ViewModels
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 // Read the response data
-                var responseContent = response.Content.ToString();
+                string responseContent = response.Content.ToString();
 
                 Console.WriteLine(responseContent);
+
+                //Latitude1 = response.Content.ToString();
+                Multi array = JsonConvert.DeserializeObject<Multi>(responseContent);
+
+
+                Latitude1 = array.INLatitude.ToString();
+
             }
             else
             {
