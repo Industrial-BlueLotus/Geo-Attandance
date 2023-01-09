@@ -32,7 +32,7 @@ namespace Attandance_App.ViewModels
         public int CodeKey { get; set; }
         public string Code { get; set; }
 
-        public string ConditionCode { get; set; }
+        public int ConditionCode { get; set; }
         public string CodeName { get; set; }
 
         public string CodeNameOnly { get; set; }
