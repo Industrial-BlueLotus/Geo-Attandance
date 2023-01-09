@@ -1,39 +1,40 @@
 ﻿
-public class Rootobject
-{
-    public Class1[] Property1 { get; set; }
-    public object INLatitude { get; internal set; }
-}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Class1
+namespace Attandance_App.ViewModels
 {
-    public int MultiAtnDetKy { get; set; }
-    public int AtnDetKy { get; set; }
-    public DateTime? InDtm { get; set; }
-    public DateTime? OutDtm { get; set; }
-    public float INLatitude { get; set; }
-    public float INLongitude { get; set; }
-    public float OutLatitude { get; set; }
-    public float OutLongitude { get; set; }
-    public Location Location { get; set; }
-    public float TTlMint { get; set; }
-}
 
-public class Location
-{
-    public int CodeKey { get; set; }
-    public string Code { get; set; }
-    public string ConditionCode { get; set; }
-    public string CodeName { get; set; }
-    public object CodeNameOnly { get; set; }
-    public bool IsDefault { get; set; }
-    public int IsActive { get; set; }
-    public int IsApproved { get; set; }
-    public object Latitude { get; internal set; }
-    public object Longitude { get; internal set; }
-
-    public static implicit operator Location(Microsoft.Maui.Devices.Sensors.Location v)
+    public class MultiNew
     {
-        throw new NotImplementedException();
+        public int MultiAtnDetKy { get; set; }
+        public int AtnDetKy { get; set; }
+        public DateTime? InDtm { get; set; }
+        public DateTime? OutDtm { get; set; }
+        public float INLatitude { get; set; }
+        public float INLongitude { get; set; }
+        public float OutLatitude { get; set; }
+        public float OutLongitude { get; set; }
+        public LocationTe Location { get; set; }
+        public float TTlMint { get; set; }
+    }
+
+    public class LocationTe
+    {
+        public int CodeKey { get; set; }
+        public string Code { get; set; }
+        public string ConditionCode { get; set; }
+        public string CodeName { get; set; }
+        public object CodeNameOnly { get; set; }
+        public bool IsDefault { get; set; }
+        public int IsActive { get; set; }
+        public int IsApproved { get; set; }
+        public object Latitude { get; internal set; }
+        public object Longitude { get; internal set; }
+
+
     }
 }
