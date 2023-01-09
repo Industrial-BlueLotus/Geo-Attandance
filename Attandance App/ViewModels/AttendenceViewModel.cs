@@ -213,10 +213,11 @@ namespace Attandance_App.ViewModels
                 Console.WriteLine(responseContent);
 
                 //Latitude1 = response.Content.ToString();
-                Multi array = JsonConvert.DeserializeObject<Multi>(responseContent);
+
+                Rootobject array = JsonConvert.DeserializeObject<Rootobject>(responseContent);
 
 
-                Latitude1 = array.INLatitude.ToString();
+                //Latitude1 = array.INLatitude.ToString();
 
             }
             else
