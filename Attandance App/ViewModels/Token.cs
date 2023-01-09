@@ -16,7 +16,7 @@ namespace Attandance_App.ViewModels
 
         public double Latitude { get; set; }
 
-        public string Longitude { get; set; }
+        public double Longitude { get; set; }
 
         public LocationParam Location { get; set; }
 

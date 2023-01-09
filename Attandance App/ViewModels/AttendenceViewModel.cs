@@ -12,6 +12,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
+using static Android.Content.ClipData;
+using System.Collections.ObjectModel;
 
 namespace Attandance_App.ViewModels
 {
@@ -20,6 +22,8 @@ namespace Attandance_App.ViewModels
         private CancellationTokenSource _cancelTokenSource;
         private bool _isCheckingLocation;
 
+        [ObservableProperty]
+        ObservableCollection<MultiNew> _LItems;
 
         [ObservableProperty]
         private DateTime _time1;
@@ -49,7 +53,7 @@ namespace Attandance_App.ViewModels
 
         private DateToken _dateToken;
 
-        private string apitoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzMxOTY0NDksImV4cCI6MTY3MzIzOTY0OSwiaWF0IjoxNjczMTk2NDQ5fQ.VBY8UwwCbuC5MMAKq24WMLddU2pnBRJ7-hOosUAYJX0";
+        private string apitoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzMyNTUxMjAsImV4cCI6MTY3MzI5ODMyMCwiaWF0IjoxNjczMjU1MTIwfQ.gUe3zftekEzSXTUaoI4tMMDDeAW9fQBXco2uwCU0NM8";
 
         [RelayCommand]
         public async void OnInButtonClick()
@@ -67,7 +71,7 @@ namespace Attandance_App.ViewModels
             tok.EmpKy = 874258;
             tok.ShiftKy = 389916;
             tok.Latitude = 0.00;
-            tok.Longitude = Longitude1;
+            tok.Longitude = 0.00;
 
             LocationParam lp = new LocationParam();
 
@@ -129,7 +133,7 @@ namespace Attandance_App.ViewModels
             tok.EmpKy = 874258;
             tok.ShiftKy = 389916;
             tok.Latitude = 0.00;
-            tok.Longitude = Longitude2;
+            tok.Longitude = 0.00;
 
             LocationParam lp = new LocationParam();
 
@@ -212,11 +216,13 @@ namespace Attandance_App.ViewModels
 
                 Console.WriteLine(responseContent);
 
-                //Latitude1 = response.Content.ToString();
-                Multi array = JsonConvert.DeserializeObject<Multi>(responseContent);
 
+                List<MultiNew> array = JsonConvert.DeserializeObject<List<MultiNew>>(responseContent);
 
-                Latitude1 = array.INLatitude.ToString();
+                LItems = new ObservableCollection<MultiNew>(array);
+
+                Console.WriteLine(LItems);
+                //Latitude1 = LItems.INLatitude.ToString();
 
             }
             else
@@ -259,7 +265,16 @@ namespace Attandance_App.ViewModels
         {
             try
             {
-                Location = await Geolocation.Default.GetLastKnownLocationAsync();
+                _isCheckingLocation = true;
+
+                GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
+
+                _cancelTokenSource = new CancellationTokenSource();
+
+                Location = await Geolocation.Default.GetLocationAsync(request, _cancelTokenSource.Token);
+
+                //location = await Geolocation.Default.GetLastKnownLocationAsync();
+
 
                 if (Location != null)
                     return $"{Location.Longitude}";
