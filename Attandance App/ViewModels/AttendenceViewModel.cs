@@ -222,6 +222,7 @@ namespace Attandance_App.ViewModels
                 LItems = new ObservableCollection<MultiNew>(array);
 
                 Console.WriteLine(LItems[0].INLatitude);
+                //Time1 = LItems[0].InDtm.ToString();
                 Latitude1 = LItems[0].INLatitude.ToString();
                 Longitude1 = LItems[0].INLongitude.ToString();
                 Latitude2 = LItems[0].OutLatitude.ToString();
