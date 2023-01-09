@@ -49,8 +49,7 @@ namespace Attandance_App.ViewModels
 
         private DateToken _dateToken;
 
-        private string apitoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzMxOTY0NDksImV4cCI6MTY3MzIzOTY0OSwiaWF0IjoxNjczMTk2NDQ5fQ.VBY8UwwCbuC5MMAKq24WMLddU2pnBRJ7-hOosUAYJX0";
-
+        private string apitoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzMyNDIzMTMsImV4cCI6MTY3MzI4NTUxMywiaWF0IjoxNjczMjQyMzEzfQ.Njp5E_H3vxIObqD4l6K-THwHmThL-Y1VQctbLvxd_Bs";
         [RelayCommand]
         public async void OnInButtonClick()
         {
@@ -213,7 +212,7 @@ namespace Attandance_App.ViewModels
                 Console.WriteLine(responseContent);
 
                 //Latitude1 = response.Content.ToString();
-                Multi array = JsonConvert.DeserializeObject<Multi>(responseContent);
+                Rootobject array = JsonConvert.DeserializeObject<Rootobject>(responseContent);
 
 
                 Latitude1 = array.INLatitude.ToString();
@@ -273,6 +272,7 @@ namespace Attandance_App.ViewModels
 
             return "None";
         }
+
 
 
     }
