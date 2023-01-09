@@ -48,7 +48,7 @@ namespace Attandance_App.ViewModels
 
         private DateToken _dateToken;
 
-        private string apitoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzI5MDgyNDcsImV4cCI6MTY3Mjk1MTQ0NywiaWF0IjoxNjcyOTA4MjQ3fQ.7LpGp7njYBXgsANERTXJ0ztisbvhJ1HCiRNGpVLc8i8";
+        private string apitoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzMyNDU2NjEsImV4cCI6MTY3MzI4ODg2MSwiaWF0IjoxNjczMjQ1NjYxfQ.-y9CvxhdMEvvS5NWiatxUg6mMFxkRL8-KcFK2MQKn8M";
 
         [RelayCommand]
         public async void OnInButtonClick()
@@ -199,7 +199,7 @@ namespace Attandance_App.ViewModels
             request.AddHeader("Accept", "application/json");
 
             request.AddHeader("IntegrationID", "1aa6a39b-5f54-4905-880a-a52733fd6105");
-            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzI4OTA1NTUsImV4cCI6MTY3MjkzMzc1NSwiaWF0IjoxNjcyODkwNTU1fQ.dFO70i68Yx7XtglN96vgCPG3-fGNhbrvB_CH3FWQ8XA");
+            request.AddHeader("Authorization", "Bearer "+apitoken);
             request.AddHeader("Content-Type", "application/json");
 
             RestResponse response = await client.PostAsync(request);
