@@ -233,8 +233,8 @@ namespace Attandance_App.ViewModels
 
                 Console.WriteLine(LItems[0].INLatitude);
 
-                string Time1in = LItems[0].InDtm.ToString("yyyy-MM-dd HH:mm:ss");
-                Console.WriteLine(Time1in);
+                //Time1= LItems[0].InDtm.ToString("yyyy-MM-dd HH:mm:ss");
+                //Console.WriteLine(Time1in);
                 //Time1 = Time1in;
                 Latitude1 = LItems[0].INLatitude.ToString();
                 Longitude1 = LItems[0].INLongitude.ToString();
