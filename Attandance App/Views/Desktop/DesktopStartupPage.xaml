@@ -198,7 +198,7 @@
 
 
 
-                <DatePicker Grid.Row="3" x:Name="mDatePicker" Style="{StaticResource dateStyle}" MinimumDate="01/01/2020" MaximumDate="12/31/2022" Date="01/01/2022" TextColor="White" />
+                <DatePicker Grid.Row="3" x:Name="mDatePicker" Date="{Binding SelectedDate, Mode=TwoWay}" Style="{StaticResource dateStyle}" MinimumDate="01/01/2020" MaximumDate="12/31/2022" TextColor="White" />
 
                 <Button Grid.Row="4" HeightRequest="60" WidthRequest="300" Text="Display" Command="{Binding DatePickAyncCommand}" TextColor="Wheat" Style="{StaticResource DisButtonStyle}" />
 

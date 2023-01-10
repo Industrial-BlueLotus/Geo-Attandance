@@ -26,6 +26,10 @@ namespace Attandance_App.ViewModels
         ObservableCollection<MultiNew> _LItems;
 
         [ObservableProperty]
+        private DateTime? _selectedDate;
+
+
+        [ObservableProperty]
         private DateTime _time1;
 
         [ObservableProperty]
@@ -53,7 +57,7 @@ namespace Attandance_App.ViewModels
 
         private DateToken _dateToken;
 
-        private string apitoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzMyNTUxMjAsImV4cCI6MTY3MzI5ODMyMCwiaWF0IjoxNjczMjU1MTIwfQ.gUe3zftekEzSXTUaoI4tMMDDeAW9fQBXco2uwCU0NM8";
+        private string apitoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJWaWhhbi5CTCIsIlZpaGFuLkJMIl0sIm5hbWVpZCI6IlZpaGFuLkJMIiwiRmlyc3ROYW1lIjoiVmloYW4uQkwiLCJVc2VySWQiOiJWaWhhbi5CTCIsIkVtYWlsIjoiTm8gRW1haWwiLCJDQ0QiOiJEQyIsInJvbGUiOiJDb21wYW55QXV0aFN1Y2Nlc3MiLCJuYmYiOjE2NzMzMjQ0MjksImV4cCI6MTY3MzM2NzYyOSwiaWF0IjoxNjczMzI0NDI5fQ.nZ_zePRNOrIJI5wWvJ7h-UW6pl4oIzrT9u92YCMB1mM";
 
         [RelayCommand]
         public async void OnInButtonClick()
@@ -182,6 +186,12 @@ namespace Attandance_App.ViewModels
         [RelayCommand]
         public async void DatePickAync()
         {
+            DateTime mSelectedDate = SelectedDate.Value;
+
+            Console.WriteLine(mSelectedDate.ToString());
+
+            string strmSelectedDate = mSelectedDate.ToString();
+
             var client = new RestClient();
 
             _dateToken = new DateToken();
@@ -190,7 +200,7 @@ namespace Attandance_App.ViewModels
             _dateToken.EmpKy = 874258;
             _dateToken.CompanyId = 156;
             _dateToken.FDT = "2022-01-10 ";
-            _dateToken.TDT = "2022-01-31 ";
+            _dateToken.TDT = strmSelectedDate;
             _dateToken.Chk = 0;
             _dateToken.PrjKy = 1;
             _dateToken.TaskKy = 1;
@@ -222,7 +232,9 @@ namespace Attandance_App.ViewModels
                 LItems = new ObservableCollection<MultiNew>(array);
 
                 Console.WriteLine(LItems[0].INLatitude);
-                //string Time1in = LItems[0].InDtm.ToString("hh:mm:ss tt");
+
+                string Time1in = LItems[0].InDtm.ToString("yyyy-MM-dd HH:mm:ss");
+                Console.WriteLine(Time1in);
                 //Time1 = Time1in;
                 Latitude1 = LItems[0].INLatitude.ToString();
                 Longitude1 = LItems[0].INLongitude.ToString();
