@@ -188,7 +188,7 @@ namespace Attandance_App.ViewModels
         {
             DateTime mSelectedDate = SelectedDate.Value;
 
-            Console.WriteLine(mSelectedDate.ToString());
+            //Console.WriteLine(mSelectedDate.ToString());
 
             string strmSelectedDate = mSelectedDate.ToString();
 
@@ -231,7 +231,7 @@ namespace Attandance_App.ViewModels
 
                 LItems = new ObservableCollection<MultiNew>(array);
 
-                Console.WriteLine(LItems[1].INLatitude);
+                //Console.WriteLine(LItems[1].INLatitude);
 
                 Time1 = (DateTime)LItems[1].InDtm;
                 Time2 = (DateTime)LItems[1].OutDtm;
