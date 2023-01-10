@@ -12,7 +12,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
-using static Android.Content.ClipData;
+//using static Android.Content.ClipData;
 using System.Collections.ObjectModel;
 
 namespace Attandance_App.ViewModels
@@ -231,15 +231,15 @@ namespace Attandance_App.ViewModels
 
                 LItems = new ObservableCollection<MultiNew>(array);
 
-                Console.WriteLine(LItems[0].INLatitude);
+                Console.WriteLine(LItems[1].INLatitude);
 
-                //Time1= LItems[0].InDtm.ToString("yyyy-MM-dd HH:mm:ss");
-                //Console.WriteLine(Time1in);
-                //Time1 = Time1in;
-                Latitude1 = LItems[0].INLatitude.ToString();
-                Longitude1 = LItems[0].INLongitude.ToString();
-                Latitude2 = LItems[0].OutLatitude.ToString();
-                Longitude2 = LItems[0].OutLongitude.ToString();
+                Time1 = (DateTime)LItems[1].InDtm;
+                Time2 = (DateTime)LItems[1].OutDtm;
+                Time3 = Time2.Subtract(Time1);
+                Latitude1 = LItems[1].INLatitude.ToString();
+                Longitude1 = LItems[1].INLongitude.ToString();
+                Latitude2 = LItems[1].OutLatitude.ToString();
+                Longitude2 = LItems[1].OutLongitude.ToString();
                 //Location = LItems[0].Location.Code.ToString();
 
             }
