@@ -99,13 +99,11 @@
                     <Setter Property="CornerRadius" Value="15" />
                     <Setter Property="BorderWidth" Value="5" />
 
-
                 </Style>
                 <Style x:Key="saveButtonStyle" TargetType="ImageButton">
                     <Setter Property="BackgroundColor" Value="Gray" />
                     <Setter Property="CornerRadius" Value="15" />
                     <Setter Property="BorderWidth" Value="5" />
-
 
                 </Style>
                 <Style x:Key="save1ButtonStyle" TargetType="Button">
@@ -140,7 +138,6 @@
                     <Setter Property="HorizontalOptions" Value="Center" />
                     <Setter Property="HeightRequest" Value="30" />
 
-
                 </Style>
                 <Style x:Key="tableContStyle" TargetType="Label">
 
@@ -151,14 +148,9 @@
                     <Setter Property="HeightRequest" Value="20" />
                     <Setter Property="WidthRequest" Value="100" />
 
-
-
                 </Style>
 
-
-
-
-            </StackLayout.Resources>
+        </StackLayout.Resources>
 
 
             <Grid>
@@ -192,18 +184,13 @@
 
                 <Label Grid.Row="1" Style="{StaticResource nameStyle}" Text="Person Name" VerticalOptions="Center" HorizontalOptions="Start" />
 
-
-
                 <Label Grid.Row="2" Style="{StaticResource label1Style}" Text="Date" HorizontalOptions="Start" VerticalOptions="Start" />
-
-
 
                 <DatePicker Grid.Row="3" x:Name="mDatePicker" Date="{Binding SelectedDate, Mode=TwoWay}" Style="{StaticResource dateStyle}" MinimumDate="01/01/2020" MaximumDate="12/31/2022" TextColor="White" />
 
                 <Button Grid.Row="4" HeightRequest="60" WidthRequest="300" Text="Display" Command="{Binding DatePickAyncCommand}" TextColor="Wheat" Style="{StaticResource DisButtonStyle}" />
 
                 <Label Grid.Row="6" Style="{StaticResource label1Style}" Text="Location" HorizontalOptions="Start" VerticalOptions="Start" />
-
 
                 <Picker Grid.Row="7" x:Name="mpicker" Title="Select a Company" HeightRequest="60" Style="{StaticResource comboStyle}" TextColor="White">
                     <Picker.ItemsSource>
@@ -213,7 +200,6 @@
                             <x:String>POS</x:String>
                             <x:String>Colombo</x:String>
                             <x:String>London</x:String>
-
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
@@ -231,17 +217,12 @@
                             <RowDefinition Height="50" />
                             <RowDefinition Height="50" />
                             <RowDefinition Height="50" />
-
-
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
-
                         </Grid.ColumnDefinitions>
-
-
 
 
                         <ImageButton Grid.Row="0" Grid.Column="0" HeightRequest="50" WidthRequest="60" Padding="5" Command="{Binding InButtonClickCommand}" CornerRadius="10" Source="add.png" HorizontalOptions="Center" Style="{DynamicResource addButtonStyle}" />
@@ -249,8 +230,6 @@
                         <ImageButton Grid.Row="0" Grid.Column="1" HeightRequest="50" WidthRequest="60" Padding="5" Command="{Binding InButtonClickCommand}" CornerRadius="10" Source="edit.png" HorizontalOptions="Center" Style="{DynamicResource editButtonStyle}" />
 
                         <ImageButton Grid.Row="0" Grid.Column="2" HeightRequest="50" WidthRequest="60" Padding="5" Command="{Binding InButtonClickCommand}" CornerRadius="10" Source="save.png" HorizontalOptions="Center" Style="{DynamicResource saveButtonStyle}" />
-
-
 
                     </Grid>
 
@@ -265,8 +244,6 @@
                             <RowDefinition Height="50" />
                             <RowDefinition Height="50" />
                             <RowDefinition Height="50" />
-
-
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150" />
@@ -277,8 +254,6 @@
                             <ColumnDefinition Width="150" />
                             <ColumnDefinition Width="150" />
                             <ColumnDefinition Width="150" />
-
-
                         </Grid.ColumnDefinitions>
 
                         <Label Text="IN " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="0" />
@@ -290,8 +265,6 @@
                         <Label Text="Out Latitude" Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="6" />
                         <Label Text="Out Longtitude " Style="{StaticResource tableTitleStyle}" Grid.Row="0" Grid.Column="7" />
 
-
-                        <!--<Entry Placeholder="text" Text="{Binding Time1, Path=Time, StringFormat='The TimeSpan is {0:c}'}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" TextColor="White" />-->
 
                         <Label Text="{Binding Time1,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="0" />
                         <Label Text="{Binding Time2,StringFormat='{}{0:h:mm tt}',Mode=TwoWay}" Style="{StaticResource tableContStyle}" Grid.Row="1" Grid.Column="1" />

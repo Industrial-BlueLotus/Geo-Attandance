@@ -7,24 +7,16 @@ namespace Attandance_App.Views.Desktop;
 
 public partial class DesktopStartupPage : ContentPage
 {
-    //public DateTime time1 { get; set; }
-
-    //public DateTime time2 { get; set; }
-
-
 
     public Location location { get; set; }
-
 
 
     public DesktopStartupPage()
     {
         InitializeComponent();
 
-        AttendenceViewModel model = new AttendenceViewModel();
+        AttendenceViewModel model = new();
         this.BindingContext = model;
-
-
 
     }
 
