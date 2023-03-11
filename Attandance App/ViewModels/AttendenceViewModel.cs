@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿
 using Microsoft.Maui.Devices.Sensors;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
@@ -12,7 +11,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
-//using static Android.Content.ClipData;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 
 namespace Attandance_App.ViewModels
@@ -102,21 +102,26 @@ namespace Attandance_App.ViewModels
             request.AddHeader("Content-Type", "application/json");
 
 
-            RestResponse response = await client.PostAsync(request);
-
-
-
-            // Check the status code of the response
-            if (response.StatusCode == HttpStatusCode.OK)
+            try
             {
-                // Read the response data
-                var responseContent = response.Content.ToString();
+                RestResponse response = await client.PostAsync(request);
+                // Check the status code of the response
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    // Read the response data
+                    var responseContent = response.Content.ToString();
 
-                Console.WriteLine(responseContent);
+                    Console.WriteLine(responseContent);
+                }
+                else
+                {
+                    Console.WriteLine("Request failed with status code: " + response.StatusCode);
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Request failed with status code: " + response.StatusCode);
+                Console.WriteLine(ex.ToString());
             }
         }
 
@@ -163,22 +168,31 @@ namespace Attandance_App.ViewModels
             request.AddHeader("Authorization", "Bearer " + apitoken);
             request.AddHeader("Content-Type", "application/json");
 
-            RestResponse response = await client.PostAsync(request);
-
-
-
-            // Check the status code of the response
-            if (response.StatusCode == HttpStatusCode.OK)
+            try
             {
-                // Read the response data
-                var responseContent = response.Content.ToString();
+                RestResponse response = await client.PostAsync(request);
+                // Check the status code of the response
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    // Read the response data
+                    var responseContent = response.Content.ToString();
 
-                Console.WriteLine(responseContent);
+                    Console.WriteLine(responseContent);
+                }
+                else
+                {
+                    Console.WriteLine("Request failed with status code: " + response.StatusCode);
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Request failed with status code: " + response.StatusCode);
+                Console.WriteLine(ex.ToString());
             }
+
+
+
+
 
         }
 
